@@ -4,5 +4,7 @@
 [![dylan14567](https://img.shields.io/badge/author-dylan14567-green.svg)](https://github.com/dylan14567)
 [![bug_report](https://img.shields.io/badge/bug-report-red.svg)](https://github.com/dylan14567/lab_superdylanyt/blob/master/.github/ISSUE_TEMPLATE/bug_report.md)
 [![security_policy](https://img.shields.io/badge/security-policy-cyan.svg)](https://github.com/dylan14567/lab_superdylanyt/blob/master/SECURITY.md)
+[![html](https://img.shields.io/badge/language-html%20-red.svg)](https://www.w3.org/html/)
+[![apk](https://img.shields.io/badge/android-apk%20-green.svg)](https://developer.android.com/studio)
 
 Bienvenido a lab_superdylanyt
