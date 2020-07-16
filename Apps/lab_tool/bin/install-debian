@@ -1,0 +1,11 @@
+pkg update && pkg upgrade
+mkdir $HOME/lab_tool/bin/ISO_Debian
+cd $HOME/lab_tool/bin/ISO_Debian
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh
+clear
+ls
+cd $HOME
+ls
+wget https://raw.githubusercontent.com/dylan14567/lab_tool/master/server/lab_tool/start-debian.sh
+chmod 777 start-debian.sh
+clear
