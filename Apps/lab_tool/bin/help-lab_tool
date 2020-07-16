@@ -1,6 +1,0 @@
-cd $HOME/lab_tool/com.lab_tool;ls
-clear
-cat README.md
-cd $HOME
-echo " Si nesecitas más ayuda visita la wiki de lab_tool "
-echo " https://github.com/dylan14567/lab_tool/wiki "
