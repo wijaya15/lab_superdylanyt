@@ -19,21 +19,22 @@ read res
 case $res in
 "create private-web-server -ubuntu")
 clear
-echo " creating a private web server. file checking. "
-echo -e "\e[5;96m you want to create this private server  y/n?"
+echo " creando un servidor web privado. verificando archivos "
+echo -e "\e[5;96m quieres crear este servidor privado  s/n?"
 read y
-if [ "$y" = "y" ]; then 
-echo " check Python files if you don't have Python installed, the system will install Python "
+if [ "$s" = "s" ]; then 
+echo " verificando los archivos de Python si no tiene Python instalado, el sistema instalará Python "
 apt-get install python -y
 clear
-echo " When creating this private web server, we need a port, for example port 8080. the server will create a localhost with the port you wrote. write a port for localhost "
+echo " Al crear este servidor web privado, necesitamos un puerto, por ejemplo, el puerto 8080. El servidor creará un localhost con el puerto que usted escribió. escribe un puerto para localhost "
 read port
-echo " creating private web server with port $port "
+echo " creando un servidor web privado con el puerto $port "
 clear
-echo " press CTRl C to get out of here "
+echo " El servidor privado se esta ejecutando en el sitio web localhost:$port "
+echo " Pulsa CTRl C para salir de aquí y apagar el servidor web privado "
 python -m SimpleHTTPServer $port
 else
-echo "coming out..."
+echo "saliendo.."
 clear
 menu
 fi
