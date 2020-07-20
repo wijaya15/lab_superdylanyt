@@ -71,11 +71,10 @@ read ENTER
 else
 clear
 echo "saliendo.."
+clear
 menu
 fi
 ;;
-clear 
-menu
 "exit")
 echo " bye ..... :) "
 exit
