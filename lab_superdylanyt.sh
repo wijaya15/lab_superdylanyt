@@ -21,7 +21,7 @@ case $res in
 clear
 echo " creating a private web server. file checking. "
 echo -e "\e[5;96m you want to create this private server  y/n?"
-read s
+read y
 if [ "$y" = "y" ]; then 
 echo " check Python files if you don't have Python installed, the system will install Python "
 apt-get install python
