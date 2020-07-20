@@ -8,6 +8,18 @@
                 cyan='\033[1;36m'        
                 reset='\033[0m'
 
+echo " Inicia Seción: "
+echo " Nombre de Usuario "
+read user
+echo -e "\e[5;96m Contraseña"
+read root
+if [ "$root" = "root" ]; then 
+menu
+else
+echo "Contraseña Incorrecta.."
+exit
+fi
+
 clear
 menu()
 {
