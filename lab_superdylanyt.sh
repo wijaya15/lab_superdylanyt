@@ -32,10 +32,8 @@ echo " creating private web server with port $port "
 clear
 echo " press CTRl C to get out of here "
 python -m SimpleHTTPServer $port
-clear
-menu
 else
-echo "saliendo.."
+echo "coming out..."
 clear
 menu
 fi
