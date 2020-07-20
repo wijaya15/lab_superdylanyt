@@ -41,6 +41,40 @@ fi
 clear
 menu
 ;;
+"nose")
+clear
+echo -e "\e[5;96m Quieres crear un servidor ssh s/n?"
+read s
+if [ "$s" = "s" ]; then 
+echo " Creando servidor ssh "
+pkg install openssh -y
+pkg install nmap -y
+nmap localhost
+sshd
+nmap localhost
+echo " Copia el puerto y pegalo aquí, luego pulsa ENTER "
+read port
+whoami
+echo " Copia tu nombre de usuario y pegalo aquí, luego pulsa ENTER "
+read user
+clear
+passwd $user
+ifconfig wlan0
+echo " Copia la dirección IP y pegalo aquí, luego pulsa ENTER "
+read ip
+clear
+echo " Copia este comando y ejecutalo en cualquier terminal para acceder al server ssh "
+echo " ssh $user@$ip -p $port "
+echo " Pulsa ENTER para salir de aqui "
+read ENTER
+else
+clear
+echo "saliendo.."
+menu
+fi
+;;
+clear 
+menu
 "exit")
 echo " bye ..... :) "
 exit
