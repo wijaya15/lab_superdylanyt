@@ -74,6 +74,8 @@ echo "saliendo.."
 clear
 menu
 fi
+clear
+menu
 ;;
 "exit")
 echo " bye ..... :) "
