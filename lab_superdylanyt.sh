@@ -12,7 +12,7 @@ clear
 menu()
 {
 clear
-printf $cyan
+printf $green
 figlet lab_superdylanyt
 echo -e -n "\e[5;92m \n >>>  "
 read res
