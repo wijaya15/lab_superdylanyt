@@ -24,7 +24,7 @@ echo -e "\e[5;96m you want to create this private server  y/n?"
 read y
 if [ "$y" = "y" ]; then 
 echo " check Python files if you don't have Python installed, the system will install Python "
-apt-get install python
+apt-get install python -y
 clear
 echo " When creating this private web server, we need a port, for example port 8080. the server will create a localhost with the port you wrote. write a port for localhost "
 read port
