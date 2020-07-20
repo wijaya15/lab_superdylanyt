@@ -41,7 +41,7 @@ fi
 clear
 menu
 ;;
-"nose")
+"create ssh-server -termux")
 clear
 echo -e "\e[5;96m Quieres crear un servidor ssh s/n?"
 read s
