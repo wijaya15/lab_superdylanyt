@@ -17,15 +17,31 @@ figlet lab_superdylanyt
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
-"1")
+"create private-web-server -ubuntu")
+clear
+echo " creating a private web server. file checking. "
+echo -e "\e[5;96m you want to create this private server  y/n?"
+read s
+if [ "$y" = "y" ]; then 
+echo " check Python files if you don't have Python installed, the system will install Python "
+pkg install python
+clear
+echo " When creating this private web server, we need a port, for example port 8080. the server will create a localhost with the port you wrote. write a port for localhost "
+read port
+echo " creating private web server with port $port "
+clear
+echo " press CTRl C to get out of here "
+python -m SimpleHTTPServer $port
 clear
 menu
-;;
-"2")
-clear
+else
+echo "saliendo.."
+menu
+fi
 menu
 ;;
-"3")
+"exit")
+echo " bye ..... :) "
 exit
 ;;
 esac
