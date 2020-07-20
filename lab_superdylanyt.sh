@@ -36,8 +36,10 @@ clear
 menu
 else
 echo "saliendo.."
+clear
 menu
 fi
+clear
 menu
 ;;
 "exit")
