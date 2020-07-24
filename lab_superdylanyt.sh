@@ -17,8 +17,8 @@ printf $green
 echo -e "\n\e[93m@lab_superdylanyt\n"
 echo -e "\n\e[5;91m   1- Crear servidor web privado en Ubuntu"
 echo -e "\e[5;96m   2- Crear servidor ssh en Termux"
-echo -e "\e[5;96m   4- Más Herramientas"
-echo -e "\e[5;92m   3- Salir"
+echo -e "\e[5;96m   3- Más Herramientas"
+echo -e "\e[5;92m   4- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
