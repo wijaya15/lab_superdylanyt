@@ -1,3 +1,11 @@
+import os
+import json
+from time import sleep
+from .logo import *
+from .system import *
+
+os.system("
+
 #!/bin/bash -e
 
 														                red='\033[1;31m'      
@@ -84,3 +92,4 @@ exit
 esac
 }
 menu
+")
