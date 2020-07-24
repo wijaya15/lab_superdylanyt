@@ -17,7 +17,7 @@ printf $green
 echo -e "\n\e[93m@lab_superdylanyt\n"
 echo -e "\n\e[5;91m   1- Crear servidor web privado en Ubuntu"
 echo -e "\e[5;96m   2- Crear servidor ssh en Termux"
-echo -e "\e[5;96m   3- Más Herramientas"
+echo -e "\e[5;96m   3- Instalar navegador w3m"
 echo -e "\e[5;92m   4- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
@@ -81,38 +81,7 @@ fi
 ;;
 "3")
 clear
-echo " INICIO DEL MENU "
-clear
-submenu()
-{
-clear
-echo -e "\n\e[93m@lab_superdylanyt\n"
-echo -e "\n\e[5;91m   1- Instalar Navegador w3m"
-echo -e "\e[5;92m   2- Salir"
-echo -e -n "\e[5;92m \n >>>  "
-read res
-case $res in
-"1")
-clear
-apt install w3m -y
-clear
-echo -e "\n\e[5;96m Regresar al menu s/n?"
-read s
-if [ "$s" = "s" ]; then 
-submenu
-else
-echo "saliendo.."
-exit
-fi
-;;
-"2")
-menu
-;;
-esac
-}
-submenu
-clear
-echo " FIN DEL SUBMENU "
+apt-get install w3m -y
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
