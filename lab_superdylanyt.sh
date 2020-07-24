@@ -14,16 +14,17 @@ menu()
 {
 clear
 printf $green
-figlet lab_superdylanyt
+echo -e "\n\e[93m@lab_superdylanyt\n"
+echo -e "\n\e[5;91m   1- Crear servidor web privado en Ubuntu"
+echo -e "\e[5;96m   2- Crear servidor ssh en Termux"
+echo -e "\e[5;92m   3- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
-"create private-web-server -ubuntu")
+"1")
+clear
 clear
 echo " creando un servidor web privado. verificando archivos "
-echo -e "\e[5;96m quieres crear este servidor privado  s/n?"
-read y
-if [ "$s" = "s" ]; then 
 echo " verificando los archivos de Python si no tiene Python instalado, el sistema instalará Python "
 apt-get install python -y
 clear
@@ -34,19 +35,18 @@ clear
 echo " El servidor privado se esta ejecutando en el sitio web localhost:$port "
 echo " Pulsa CTRl C para salir de aquí y apagar el servidor web privado "
 python -m SimpleHTTPServer $port
-else
-echo "saliendo.."
 clear
-menu
-fi
-clear
-menu
-;;
-"create ssh-server -termux")
-clear
-echo -e "\e[5;96m Quieres crear un servidor ssh s/n?"
+echo -e "\e[5;96m Regresar al menu s/n?"
 read s
 if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"2")
+clear
 echo " Creando servidor ssh "
 pkg install openssh -y
 pkg install nmap -y
@@ -68,21 +68,20 @@ echo " Copia este comando y ejecutalo en cualquier terminal para acceder al serv
 echo " ssh $user@$ip -p $port "
 echo " Pulsa ENTER para salir de aqui "
 read ENTER
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
 else
-clear
 echo "saliendo.."
-clear
-menu
+exit
 fi
-clear
-menu
 ;;
-"exit")
-echo " bye ..... :) "
+"3")
 exit
 ;;
 esac
 }
 menu
-
 
