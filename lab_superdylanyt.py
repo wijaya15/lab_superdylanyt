@@ -4,6 +4,12 @@ from time import sleep
 from .logo import *
 from .system import *
 
+autor = "dylan14567"
+mensaje = "Bienvenido a lab_superdylanyt"
+
+print(autor + mensaje)
+
+os.system("clear")
 os.system("
 
 #!/bin/bash -e
