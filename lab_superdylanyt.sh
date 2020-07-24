@@ -106,7 +106,7 @@ exit
 fi
 ;;
 "2")
-exit
+menu
 ;;
 esac
 }
