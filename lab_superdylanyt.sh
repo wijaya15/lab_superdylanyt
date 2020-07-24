@@ -1,17 +1,3 @@
-import os
-import json
-from time import sleep
-from .logo import *
-from .system import *
-
-autor = "dylan14567"
-mensaje = "Bienvenido a lab_superdylanyt"
-
-print(autor + mensaje)
-
-os.system("clear")
-os.system("
-
 #!/bin/bash -e
 
 														                red='\033[1;31m'      
@@ -99,4 +85,4 @@ esac
 }
 menu
 
-")
+
