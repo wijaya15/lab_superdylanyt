@@ -21,7 +21,21 @@ pkg install neofetch -y
 cd ../usr/etc;ls
 rm motd
 rm bash.bashrc
-wget https://raw.githubusercontent.com/dylan14567/lab_tool/master/Termux/bash.bashrc
+bin=bash.bashrc
+cat > $bin <<- EOM
+command_not_found_handle() {
+        /data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
+}
+
+setterm -foreground green
+
+echo -e "\e[1;32m"
+neofetch
+echo ""   
+setterm -foreground green
+PS1='\033[1;91m\u\[@localhost[\033[1;93m\W\033[1;91m]:\$ \033[1;92m'
+
+EOM
 cd --
 clear
 echo -e "\n\e[5;96m Regresar al menu s/n?"
