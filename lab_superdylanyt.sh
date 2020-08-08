@@ -39,7 +39,7 @@ EOM
 
 termux-fix-shebang $bin
 chmod +x $bin
-cd --
+cd $HOME
 clear
 echo -e "\n\e[5;96m Regresar al menu s/n?"
 read s
