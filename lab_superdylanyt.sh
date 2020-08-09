@@ -148,6 +148,25 @@ pkg update && pkg upgrade
 pkg install php-apache -y
 pkg install mariadb -y
 pkg install vim -y
+cd $PREFIX/share/apache2/default-site/htdocs;ls
+rm -rf index.html
+bin=index.html
+cat > $bin <<- EOM
+<!DOCTYPE html
+<html>
+<head>
+      <title> Web server </title>
+</head>
+<body>
+     <h1> It works! </h1><br />
+     <br />
+     <p> This is the default web page for this server. </p>
+     <p> Visit apache page for more information: <a href="https://httpd.apache.org/">https://httpd.apache.org/</a>
+<body>
+</html>       
+EOM
+
+cd $HOME
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
