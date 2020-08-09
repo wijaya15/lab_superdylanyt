@@ -8,7 +8,9 @@ clear
 echo -e "\n\e[93m@lab_superdylanyt\n"
 echo -e "\n\e[5;91m   1- Instalar Banner en Termux"
 echo -e "\e[5;96m   2- Instalar Root en Termux"
-echo -e "\e[5;92m   3- Salir"
+echo -e "\e[5;92m   3- Crear Servidor SSH en Termux"
+echo -e "\e[5;92m   4- Actualizar lab_superdylanyt"
+echo -e "\e[5;92m   5- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -78,6 +80,59 @@ exit
 fi
 ;;
 "3")
+clear
+pkg install openssh -y
+pkg install nmap -y
+nmap localhost
+sshd
+nmap localhost
+echo -e "\e[5;92m Copia el puerto y pegalo aquí, luego pulsa ENTER "
+read port
+whoami
+echo -e "\e[5;92m Copia tu nombre de usuario y pegalo aquí, luego pulsa ENTER "
+read user
+clear
+passwd $user
+ifconfig wlan0
+echo -e "\e[5;92m Copia la dirección IP y pegalo aquí, luego pulsa ENTER "
+read ip
+clear
+echo -e "\e[5;92m Copia este comando y ejecutalo en cualquier terminal para acceder al server ssh "
+echo -e "\e[5;92m ssh $user@$ip -p $port "
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"4")
+clear
+pkg update && pkg upgrade
+update=update-lab_superdylanyt.sh
+cat > $update <<- EOM
+clear
+rm lab_superdylanyt.sh
+wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/lab_superdylanyt.sh
+chmod +x lab_superdylanyt
+clear
+EOM
+
+chmod +x $update
+./$update
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"5")
 exit
 ;;
 esac
