@@ -8,7 +8,7 @@
 [![html](https://img.shields.io/badge/language-html%20-red.svg)](https://www.w3.org/html/)
 [![apk](https://img.shields.io/badge/android-apk%20-green.svg)](https://developer.android.com/studio)
 
-Lab_superdylanyt es un sistema creado por SUPERDYLANYT, que funciona en una terminal linux, este sistema te ayuda instalar
+Lab_superdylanyt es un sistema creado por SUPERDYLANYT, que funciona en linux, este sistema te ayuda instalar
 programas en linux.
 
 Para instalar lab_superdylanyt en linux ejecuta estos comandos en tu Terminal Linux.
