@@ -10,7 +10,8 @@ echo -e "\n\e[5;91m   1- Instalar Banner en Termux"
 echo -e "\e[5;96m   2- Instalar Root en Termux"
 echo -e "\e[5;92m   3- Crear Servidor SSH en Termux"
 echo -e "\e[5;92m   4- Actualizar lab_superdylanyt"
-echo -e "\e[5;92m   5- Salir"
+echo -e "\e[5;92m   5- Crear Servidor WEB en Termux"
+echo -e "\e[5;92m   6- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -141,6 +142,22 @@ exit
 fi
 ;;
 "5")
+clear
+pkg update && pkg upgrade
+pkg install php-apache -y
+pkg install mariadb -y
+pkg install vim -y
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"6")
 exit
 ;;
 esac
