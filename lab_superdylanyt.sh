@@ -166,6 +166,7 @@ cat > $bin <<- EOM
 </html>       
 EOM
 
+echo '<?php phpinfo();'> info.php
 cd $HOME
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
