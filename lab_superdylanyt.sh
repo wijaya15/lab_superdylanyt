@@ -39,7 +39,6 @@ PS1='\033[1;91m\u\[@localhost[\033[1;93m\W\033[1;91m]:\$ \033[1;92m'
 
 EOM
 
-termux-fix-shebang $bin
 chmod +x $bin
 cd $HOME
 clear
