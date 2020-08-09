@@ -11,7 +11,8 @@ echo -e "\e[5;96m   2- Instalar Root en Termux"
 echo -e "\e[5;92m   3- Crear Servidor SSH en Termux"
 echo -e "\e[5;92m   4- Actualizar lab_superdylanyt"
 echo -e "\e[5;92m   5- Crear Servidor WEB en Termux"
-echo -e "\e[5;92m   6- Salir"
+echo -e "\e[5;92m   6- Instalar lab_tool en Termux"
+echo -e "\e[5;92m   7- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -158,6 +159,23 @@ exit
 fi
 ;;
 "6")
+clear
+pkg install wget -y
+wget https://raw.githubusercontent.com/dylan14567/lab_tool/master/install-lab_tool.sh
+ls
+chmod +x install-lab_tool.sh
+./install-lab_tool.sh
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"7")
 exit
 ;;
 esac
