@@ -20,7 +20,7 @@ apt update && apt upgrade -y
 pkg install wget -y
 pkg install vim -y
 pkg install neofetch -y
-cd ../usr/etc;ls
+cd $PREFIX/etc;ls
 rm motd
 rm bash.bashrc
 bin=bash.bashrc
@@ -66,9 +66,17 @@ pkg install vim -y
 pkg install wget -y
 pkg install tsu -y && hash -r
 clear
-wget https://raw.githubusercontent.com/dylan14567/lab_tool/master/Termux/start-root.sh
+bin=start-root.sh
+cat > $bin <<- EOM
+#!/bin/bash
+setterm -foreground green
 clear
-chmod 777 start-root.sh
+#bash.bashrc
+proot -0 -w ~ $PREFIX/bin/bash
+EOM
+
+termux-fix-shebang $bin
+chmod +x $bin
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
