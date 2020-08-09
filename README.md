@@ -13,12 +13,12 @@ programas en linux.
 
 Para instalar lab_superdylanyt en linux ejecuta estos comandos en tu Terminal Linux.
 
-'''shell
+```shell
 
 apt-get install wget -y
 wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/lab_superdylanyt.sh
 chmod +x lab_superdylanyt.sh
 ./lab_superdylanyt.sh
 
-'''
+```
 
