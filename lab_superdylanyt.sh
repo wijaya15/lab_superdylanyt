@@ -13,7 +13,8 @@ echo -e "\e[5;92m   4- Actualizar lab_superdylanyt"
 echo -e "\e[5;92m   5- Crear Servidor WEB en Termux"
 echo -e "\e[5;92m   6- Instalar lab_tool en Termux"
 echo -e "\e[5;92m   7- Instalar Ubuntu en Termux"
-echo -e "\e[5;92m   8- Salir"
+echo -e "\e[5;92m   8- Instalar Alpine Linux en Termux"
+echo -e "\e[5;92m   9- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -226,6 +227,22 @@ exit
 fi
 ;;
 "8")
+clear
+mkdir TermuxAlpine
+cd TermuxAlpine
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/Hax4us/TermuxAlpine/master/TermuxAlpine.sh
+bash TermuxAlpine.sh
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"9")
 exit
 ;;
 esac
