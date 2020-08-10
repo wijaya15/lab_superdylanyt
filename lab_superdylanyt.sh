@@ -219,6 +219,9 @@ mv $bin $PREFIX/bin
 cd $HOME
 mv Ubuntu $PREFIX/share
 cd $HOME
+echo " Ejecuta el comando startubuntu para inciar Ubuntu en Termux "
+echo " Pulsa ENTER para salir de aqui "
+read ENTER
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
