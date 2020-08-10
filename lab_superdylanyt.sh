@@ -200,6 +200,14 @@ fi
 ;;
 "7")
 clear
+pkg update && pkg upgrade
+pkg install figlet -y
+setterm -foreground cyan
+figlet Ubuntu
+setterm -foreground white
+echo " Pulsa ENTER para confirmar la instalación de Ubuntu "
+echo " Pulsa CTRL C para salir de aqui "
+read ENTER
 mkdir Ubuntu
 cd Ubuntu
 echo -e "\e[5;96m INSTALANDO UBUNTU "
