@@ -209,13 +209,15 @@ pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubuser
 bin=startubuntu
 cat > $bin <<- EOM
 clear
-cd $HOME/Ubuntu
+cd $PREFIX/share/Ubuntu
 ./start-ubuntu.sh
 EOM
 
 termux-fix-shebang $bin
 chmod +x $bin
 mv $bin $PREFIX/bin
+cd $HOME
+mv Ubuntu $PREFIX/share
 cd $HOME
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
