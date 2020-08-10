@@ -205,9 +205,7 @@ cd Ubuntu
 echo -e "\e[5;96m INSTALANDO UBUNTU "
 sleep 2.0
 setterm -foreground white
-pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/Neo-Oli/termux-ubuntu/master/ubuntu.sh
-chmod +x ubuntu.sh
-bash ubuntu.sh
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh
 cd $HOME
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
