@@ -201,19 +201,19 @@ fi
 "7")
 clear
 pkg update && pkg upgrade
-pkg install figlet -y
-setterm -foreground cyan
-figlet Ubuntu
-setterm -foreground white
-echo " Pulsa ENTER para confirmar la instalación de Ubuntu "
-echo " Pulsa CTRL C para salir de aqui "
-read ENTER
 mkdir Ubuntu
 cd Ubuntu
-echo -e "\e[5;96m INSTALANDO UBUNTU "
-sleep 2.0
-setterm -foreground white
 pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh
+bin=startubuntu
+cat > $bin <<- EOM
+clear
+cd $HOME/Ubuntu
+./start-ubuntu.sh
+EOM
+
+termux-fix-shebang $bin
+chmod +x $bin
+mv $bin $PREFIX/bin
 cd $HOME
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
