@@ -12,7 +12,8 @@ echo -e "\e[5;92m   3- Crear Servidor SSH en Termux"
 echo -e "\e[5;92m   4- Actualizar lab_superdylanyt"
 echo -e "\e[5;92m   5- Crear Servidor WEB en Termux"
 echo -e "\e[5;92m   6- Instalar lab_tool en Termux"
-echo -e "\e[5;92m   7- Salir"
+echo -e "\e[5;92m   7- Instalar Ubuntu en Termux"
+echo -e "\e[5;92m   8- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -198,6 +199,27 @@ exit
 fi
 ;;
 "7")
+clear
+mkdir Ubuntu
+cd Ubuntu
+echo -e "\e[5;96m INSTALANDO UBUNTU "
+sleep 2.0
+setterm -foreground white
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/Neo-Oli/termux-ubuntu/master/ubuntu.sh
+chmod +x ubuntu.sh
+bash ubuntu.sh
+cd $HOME
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"8")
 exit
 ;;
 esac
