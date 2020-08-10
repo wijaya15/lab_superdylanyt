@@ -14,7 +14,8 @@ echo -e "\e[5;92m   5- Crear Servidor WEB en Termux"
 echo -e "\e[5;92m   6- Instalar lab_tool en Termux"
 echo -e "\e[5;92m   7- Instalar Ubuntu en Termux"
 echo -e "\e[5;92m   8- Instalar Alpine Linux en Termux"
-echo -e "\e[5;92m   9- Salir"
+echo -e "\e[5;92m   9- Instalar w3m en Termux"
+echo -e "\e[5;92m   10- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -243,6 +244,20 @@ exit
 fi
 ;;
 "9")
+clear
+pkg update && pkg upgrade
+pkg install w3m -y
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"10")
 exit
 ;;
 esac
