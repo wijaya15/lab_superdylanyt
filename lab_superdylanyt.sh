@@ -92,6 +92,8 @@ fi
 clear
 pkg install openssh -y
 pkg install nmap -y
+pkg install net-tools -y
+pkg install procps -y
 nmap localhost
 sshd
 nmap localhost
