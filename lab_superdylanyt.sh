@@ -1,6 +1,15 @@
 #!/bin/bash
 clear
-apt-get install -y tar proot wget 
+case "$1" in
+	  start)
+	   echo " Iniciando Sistema "
+            ;;
+        
+	*)
+	    echo $"Usage: $0 {start}"
+	    exit 2
+	    ;;
+esac
 setterm -foreground green
 menu()
 {
