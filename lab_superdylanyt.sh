@@ -15,7 +15,6 @@ case "$1" in
              clear
              rm -rf update-lab_superdylanyt.sh
              EOM
-
              chmod +x $update
              ./$update
              exit
