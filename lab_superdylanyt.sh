@@ -4,9 +4,25 @@ case "$1" in
 	  start)
 	   echo " Iniciando Sistema "
             ;;
+
+          update)
+             update=update-lab_superdylanyt.sh
+             cat > $update <<- EOM
+             clear
+             rm lab_superdylanyt.sh
+             wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/lab_superdylanyt.sh
+             chmod +x lab_superdylanyt.sh
+             clear
+             rm -rf update-lab_superdylanyt.sh
+             EOM
+
+             chmod +x $update
+             ./$update
+             exit
+           ;;
         
 	*)
-	    echo $"Usage: $0 {start}"
+	    echo $"Usage: $0 {start|update}"
 	    exit 2
 	    ;;
 esac
@@ -133,7 +149,6 @@ fi
 ;;
 "4")
 clear
-pkg update && pkg upgrade
 update=update-lab_superdylanyt.sh
 cat > $update <<- EOM
 clear
