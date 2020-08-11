@@ -6,17 +6,9 @@ case "$1" in
             ;;
 
           update)
-             update=update-lab_superdylanyt.sh
-             cat > $update <<- EOM
-             clear
-             rm lab_superdylanyt.sh
-             wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/lab_superdylanyt.sh
-             chmod +x lab_superdylanyt.sh
-             clear
-             rm -rf update-lab_superdylanyt.sh
-             EOM
-             chmod +x $update
-             ./$update
+             wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/update-lab_superdylanyt.sh
+             chmod +x update-lab_superdylanyt.sh
+             ./update-lab_superdylanyt.sh
              exit
            ;;
         
