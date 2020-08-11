@@ -44,7 +44,6 @@ PS1='\033[1;91m\u\[@localhost[\033[1;93m\W\033[1;91m]:\$ \033[1;92m'
 
 EOM
 
-chmod +x $bin
 cd $HOME
 clear
 echo -e "\n\e[5;96m Regresar al menu s/n?"
