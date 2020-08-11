@@ -235,7 +235,9 @@ fi
 ;;
 "8")
 clear
+cd $HOME
 pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/Hax4us/TermuxAlpine/master/TermuxAlpine.sh && bash TermuxAlpine.sh
+rm -rf TermuxAlpine.sh
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
