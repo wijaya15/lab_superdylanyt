@@ -15,7 +15,8 @@ echo -e "\e[5;92m   6- Instalar lab_tool en Termux"
 echo -e "\e[5;92m   7- Instalar Ubuntu en Termux"
 echo -e "\e[5;92m   8- Instalar Alpine Linux en Termux"
 echo -e "\e[5;92m   9- Instalar w3m en Termux"
-echo -e "\e[5;92m   10- Salir"
+echo -e "\e[5;92m   10- Instalar Arch Linux en Termux"
+echo -e "\e[5;92m   11- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -263,6 +264,23 @@ exit
 fi
 ;;
 "10")
+clear
+cd $HOME
+pkg update && pkg upgrade
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/TermuxArch/TermuxArch/master/setupTermuxArch.bash
+chmod +x setupTermuxArch.bash
+bash setupTermuxArch.bash
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"11")
 exit
 ;;
 esac
