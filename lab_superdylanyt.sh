@@ -27,7 +27,7 @@ echo -e "\e[5;96m   2- Instalar Root en Termux"
 echo -e "\e[5;92m   3- Crear Servidor SSH en Termux"
 echo -e "\e[5;92m   4- Actualizar lab_superdylanyt"
 echo -e "\e[5;92m   5- Crear Servidor WEB en Termux"
-echo -e "\e[5;92m   6- Instalar lab_tool en Termux"
+echo -e "\e[5;92m   6- Instalar xfce4-terminal en TermuxAlpine"
 echo -e "\e[5;92m   7- Instalar Ubuntu en Termux"
 echo -e "\e[5;92m   8- Instalar Alpine Linux en Termux"
 echo -e "\e[5;92m   9- Instalar w3m en Termux"
@@ -200,11 +200,17 @@ fi
 ;;
 "6")
 clear
-pkg install wget -y
-wget https://raw.githubusercontent.com/dylan14567/lab_tool/master/install-lab_tool.sh
-ls
-chmod +x install-lab_tool.sh
-./install-lab_tool.sh
+apk update
+apk upgrade
+apk add xvfb openbox xfce4-terminal x11vnc
+apk add xfce4
+Xvfb :1 -screen 0 1920x1080x24 &
+x11vnc -xkb -noxrecord -noxfixes -noxdamage -display :1 -nopw -wait 5 -shared -permitfiletransfer -tightfilexfer -noshm &
+DISPLAY=:1 openbox &
+DISPLAY=:1 xfce4-terminal &
+echo -e "\e[5;96m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
