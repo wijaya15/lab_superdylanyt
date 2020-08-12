@@ -204,6 +204,7 @@ apk update
 apk upgrade
 apk add xvfb openbox xfce4-terminal x11vnc
 apk add xfce4
+clear
 Xvfb :1 -screen 0 1920x1080x24 &
 x11vnc -xkb -noxrecord -noxfixes -noxdamage -display :1 -nopw -wait 5 -shared -permitfiletransfer -tightfilexfer -noshm &
 DISPLAY=:1 openbox &
