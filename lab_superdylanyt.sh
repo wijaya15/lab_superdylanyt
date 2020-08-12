@@ -25,7 +25,7 @@ echo -e "\n\e[93m@lab_superdylanyt\n"
 echo -e "\n\e[5;91m   1- Instalar Banner en Termux"
 echo -e "\e[5;96m   2- Instalar Root en Termux"
 echo -e "\e[5;92m   3- Crear Servidor SSH en Termux"
-echo -e "\e[5;92m   4- Actualizar lab_superdylanyt"
+echo -e "\e[5;92m   4- Iniciar Htop"
 echo -e "\e[5;92m   5- Crear Servidor WEB en Termux"
 echo -e "\e[5;92m   6- Instalar xfce4-terminal en TermuxAlpine"
 echo -e "\e[5;92m   7- Instalar Ubuntu en Termux"
@@ -140,18 +140,7 @@ fi
 ;;
 "4")
 clear
-update=update-lab_superdylanyt.sh
-cat > $update <<- EOM
-clear
-rm lab_superdylanyt.sh
-wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/lab_superdylanyt.sh
-chmod +x lab_superdylanyt.sh
-clear
-rm -rf update-lab_superdylanyt.sh
-EOM
-
-chmod +x $update
-./$update
+htop
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
