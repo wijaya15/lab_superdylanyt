@@ -295,6 +295,9 @@ fi
 "11")
 clear
 pkg install busybox termux-services -y
+pkg install net-tools -y
+pkg install procps -y
+cd $HOME
 source $PREFIX/etc/profile.d/start-services.sh
 sv-enable ftpd
 clear
