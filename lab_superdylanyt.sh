@@ -303,12 +303,22 @@ sv-enable ftpd
 clear
 echo " Escribe el nombre de la carpeta, donde estaran los archivos del servidor FTP "
 read carpeta
-mkdir $carpeta
 clear
-echo -e "\e[5;96m Se ha creado la carpeta con el nombre $carpeta "
+mkdir $carpeta
+cd $carpeta
+bin=README.md
+cat > $bin <<- EOM
+# It Works 
+Thanks for creating the ftp server with lab_superdylanyt system
+EOM
+
+clear
+cd $HOME
+clear
 echo -e "\e[5;96m Ingresa al menu y escribe 12 para iniciar el servidor FTP "
 echo -e "\e[5;96m Pulsa ENTER para salir de aqui "
 read ENTER
+setterm -foreground white
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
