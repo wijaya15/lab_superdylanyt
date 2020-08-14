@@ -301,7 +301,7 @@ cd $HOME
 source $PREFIX/etc/profile.d/start-services.sh
 sv-enable ftpd
 clear
-echo " Escribe el nombre de la carpeta, donde estaran los archivos del servidor FTP "
+echo " Escribe el nombre de la carpeta, para crear la carpeta, donde estaran los archivos del servidor FTP "
 read carpeta
 clear
 mkdir $carpeta
