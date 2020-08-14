@@ -331,7 +331,7 @@ fi
 clear
 cd $HOME/Servidor_FTP
 clear
-ip a
+ifconfig wlan0
 echo -e "\e[5;92m Copia la dirección IP y pegalo aquí, luego pulsa ENTER "
 read ip
 clear
