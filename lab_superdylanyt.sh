@@ -33,7 +33,8 @@ echo -e "\e[5;92m   8- Instalar Alpine Linux en Termux"
 echo -e "\e[5;92m   9- Instalar w3m en Termux"
 echo -e "\e[5;92m   10- Instalar Arch Linux en Termux"
 echo -e "\e[5;92m   11- Crear Servidor FTP en Termux"
-echo -e "\e[5;92m   12- Salir"
+echo -e "\e[5;92m   12- Iniciar Servidor FTP en Termux"
+echo -e "\e[5;92m   13- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -301,11 +302,8 @@ cd $HOME
 source $PREFIX/etc/profile.d/start-services.sh
 sv-enable ftpd
 clear
-echo " Escribe el nombre de la carpeta, para crear la carpeta, donde estaran los archivos del servidor FTP "
-read carpeta
-clear
-mkdir $carpeta
-cd $carpeta
+mkdir $HOME/Servidor_FTP
+cd $HOME/Servidor_FTP
 bin=README.md
 cat > $bin <<- EOM
 # It Works 
@@ -330,6 +328,25 @@ exit
 fi
 ;;
 "12")
+clear
+cd $HOME/Servidor_FTP
+clear
+ip a
+echo " Copia tu IP y pegala aquí "
+read ip
+clear
+tcpsvd -vE $ip 1024 ftpd
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"13")
 exit
 ;;
 esac
