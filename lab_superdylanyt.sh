@@ -332,7 +332,7 @@ clear
 cd $HOME/Servidor_FTP
 clear
 ip a
-echo " Copia tu IP y pegala aquí "
+echo -e "\e[5;92m Copia la dirección IP y pegalo aquí, luego pulsa ENTER "
 read ip
 clear
 tcpsvd -vE $ip 1024 ftpd
