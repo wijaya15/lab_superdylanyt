@@ -32,7 +32,8 @@ echo -e "\e[5;92m   7- Instalar Ubuntu en Termux"
 echo -e "\e[5;92m   8- Instalar Alpine Linux en Termux"
 echo -e "\e[5;92m   9- Instalar w3m en Termux"
 echo -e "\e[5;92m   10- Instalar Arch Linux en Termux"
-echo -e "\e[5;92m   11- Salir"
+echo -e "\e[5;92m   11- Crear Servidor FTP en Termux"
+echo -e "\e[5;92m   12- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -292,6 +293,30 @@ exit
 fi
 ;;
 "11")
+clear
+pkg install busybox termux-services -y
+source $PREFIX/etc/profile.d/start-services.sh
+sv-enable ftpd
+clear
+echo " Escribe el nombre de la carpeta, donde estaran los archivos del servidor FTP "
+read carpeta
+mkdir $carpeta
+clear
+echo -e "\e[5;96m Se ha creado la carpeta con el nombre $carpeta "
+echo -e "\e[5;96m Ingresa al menu y escribe 12 para iniciar el servidor FTP "
+echo -e "\e[5;96m Pulsa ENTER para salir de aqui "
+read ENTER
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"12")
 exit
 ;;
 esac
