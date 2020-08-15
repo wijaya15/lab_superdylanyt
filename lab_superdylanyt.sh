@@ -34,7 +34,8 @@ echo -e "\e[5;92m   9- Instalar w3m en Termux"
 echo -e "\e[5;92m   10- Instalar Arch Linux en Termux"
 echo -e "\e[5;92m   11- Crear Servidor FTP en Termux"
 echo -e "\e[5;92m   12- Iniciar Servidor FTP en Termux"
-echo -e "\e[5;92m   13- Salir"
+echo -e "\e[5;92m   13- Instalar Neofetch en Termux"
+echo -e "\e[5;92m   14- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -349,6 +350,18 @@ exit
 fi
 ;;
 "13")
+clear
+pkg update && pkg upgrade
+pkg install neofetch -y
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s                                          if [ "$s" = "s" ]; then
+menu                                            else
+echo "saliendo.."
+exit
+fi
+;;
+"14")
 exit
 ;;
 esac
