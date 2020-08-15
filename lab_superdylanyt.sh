@@ -35,7 +35,8 @@ echo -e "\e[5;92m   10- Instalar Arch Linux en Termux"
 echo -e "\e[5;92m   11- Crear Servidor FTP en Termux"
 echo -e "\e[5;92m   12- Iniciar Servidor FTP en Termux"
 echo -e "\e[5;92m   13- Instalar Neofetch en Termux"
-echo -e "\e[5;92m   14- Salir"
+echo -e "\e[5;92m   14- Crear Sistema de Archivos en Termux"
+echo -e "\e[5;92m   15- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -362,6 +363,30 @@ exit
 fi
 ;;
 "14")
+clear
+echo -e "\e[5;96m Es nesesario que tengas instalado apache en Termux para crear este sistema de archivos "
+echo -e "\e[5;96m Al crear este sistema de archivos, se eliminara los archivos de la siquiente ubicación $PREFIX/share/apache2/default-site/htdocs, se recomienda hacer una copia de seguridad de los archivos de esa ubicación en caso de que tengas archivos importantes ahi "
+echo -e "\e[5;96m Pulsa ENTER para continuar, pulsa CTRL C para salir de aqui "
+read ENTER
+clear
+setterm -foreground white
+cd $PREFIX/share/apache2/default-site/htdocs;ls
+rm -rf *;ls
+echo '<?php phpinfo();'> info.php
+mkdir proyectos
+bin=README.md
+cat > $bin <<- EOM
+# Sistema de Archivos
+
+Gracias por crear este sistema de archivos, con el sistema lab_superdylanyt
+      
+EOM
+
+wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/index.html
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"        read s                                          if [ "$s" = "s" ]; then                         menu                                            else                                            echo "saliendo.."                               exit                                            fi
+;;
+"15")
 exit
 ;;
 esac
