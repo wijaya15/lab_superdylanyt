@@ -356,8 +356,10 @@ pkg update && pkg upgrade
 pkg install neofetch -y
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
-read s                                          if [ "$s" = "s" ]; then
-menu                                            else
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
 echo "saliendo.."
 exit
 fi
@@ -384,7 +386,14 @@ EOM
 
 wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/index.html
 clear
-echo -e "\e[5;96m Regresar al menu s/n?"        read s                                          if [ "$s" = "s" ]; then                         menu                                            else                                            echo "saliendo.."                               exit                                            fi
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
 ;;
 "15")
 exit
