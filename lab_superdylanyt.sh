@@ -159,6 +159,8 @@ pkg update && pkg upgrade
 pkg install php-apache -y
 pkg install mariadb -y
 pkg install vim -y
+pkg install net-tools -y
+pkg install procps -y
 cd $PREFIX/share/apache2/default-site/htdocs;ls
 rm -rf index.html
 bin=index.html
