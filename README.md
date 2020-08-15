@@ -9,6 +9,8 @@
 Lab_superdylanyt es un sistema creado por SUPERDYLANYT, que funciona en linux, este sistema te ayuda instalar
 programas en linux.
 
+Al ejecutar el script ./lab_superdylanyt, tienes que escribir start para iniciar el sistema de esta manera ./lab_superdylanyt start y para actualizar el sistema escribe este comando ./lab_superdylanyt update.
+
 Para instalar lab_superdylanyt en linux ejecuta estos comandos en tu Terminal Linux.
 
 ```shell
