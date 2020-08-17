@@ -162,11 +162,10 @@ pkg install mariadb -y
 pkg install vim -y
 pkg install net-tools -y
 pkg install procps -y
+clear
 cd $PREFIX/share/apache2/default-site/htdocs;ls
 rm -rf index.html
-wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/lab_superdylanyt/index.html
-clear
-bin=apache2.html
+bin=index.html
 cat > $bin <<- EOM
 <!DOCTYPE html
 <html>
