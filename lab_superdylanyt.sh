@@ -176,7 +176,8 @@ cat > $bin <<- EOM
      <h1> It works! </h1><br />
      <br />
      <p> This is the default web page for this server. </p>
-     <p> Visit apache page for more information: <a href="https://httpd.apache.org/">https://httpd.apache.org/</a>
+     <p> Visit apache page for more information: <a href="https://httpd.apache.org/">https://httpd.apache.org/</a></p>
+     <p> Look at the information of your web server <a href="info.php">here</a></p>
 <body>
 </html>       
 EOM
