@@ -220,30 +220,29 @@ fi
 ;;
 "7")
 clear
-pkg update && pkg upgrade
-mkdir $HOME/Ubuntu
-cd $HOME/Ubuntu
-pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Ubuntu/ubuntu.sh && bash ubuntu.sh
-rm -rf ubuntu.sh
+mkdir $PREFIX/share/Ubuntu
+cd $PREFIX/share/Ubuntu
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/ubuntu.sh && bash ubuntu.sh 
 clear
-bin=startubuntu
-cat > $bin <<- EOM
+rm ubuntu.sh
+cd $PREFIX/bin
+ubuntu=startubuntu
+cat > $ubuntu <<- EOM
 clear
 cd $PREFIX/share/Ubuntu
 ./start-ubuntu.sh
+
 EOM
 
-termux-fix-shebang $bin
-chmod +x $bin
-mv $bin $PREFIX/bin
+termux-fix-shebang $ubuntu
+chmod +x $ubuntu
+clear
 cd $HOME
-mv Ubuntu $PREFIX/share
-cd $HOME
-echo " Ejecuta el comando startubuntu para inciar Ubuntu en Termux "
-echo " Pulsa ENTER para salir de aqui "
+echo " Ejecuta ${ubuntu} para iniciar Ubuntu "
+echo " Pulsa ENTER para salir de aquí "
 read ENTER
 clear
-echo -e "\e[5;96m Regresar al menu s/n?"
+echo -e "\n\e[5;96m Regresar al menu s/n?"
 read s
 if [ "$s" = "s" ]; then 
 menu
