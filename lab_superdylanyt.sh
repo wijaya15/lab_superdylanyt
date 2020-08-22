@@ -223,7 +223,7 @@ clear
 pkg update && pkg upgrade
 mkdir $PREFIX/share/Ubuntu
 cd $PREFIX/share/Ubuntu
-pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/ubuntu.sh && bash ubuntu.sh 
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/ubuntu.sh && bash ubuntu.sh 
 clear
 rm ubuntu.sh
 cd $PREFIX/bin
