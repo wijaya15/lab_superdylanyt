@@ -220,6 +220,7 @@ fi
 ;;
 "7")
 clear
+pkg update && pkg upgrade
 mkdir $PREFIX/share/Ubuntu
 cd $PREFIX/share/Ubuntu
 pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/ubuntu.sh && bash ubuntu.sh 
@@ -242,7 +243,7 @@ echo " Ejecuta ${ubuntu} para iniciar Ubuntu "
 echo " Pulsa ENTER para salir de aquí "
 read ENTER
 clear
-echo -e "\n\e[5;96m Regresar al menu s/n?"
+echo -e "\e[5;96m Regresar al menu s/n?"
 read s
 if [ "$s" = "s" ]; then 
 menu
