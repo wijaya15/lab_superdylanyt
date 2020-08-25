@@ -89,6 +89,7 @@ pkg install vim -y
 pkg install wget -y
 pkg install tsu -y && hash -r
 clear
+cd $PREFIX/bin
 bin=start-root.sh
 cat > $bin <<- EOM
 #!/bin/bash
@@ -100,6 +101,7 @@ EOM
 
 termux-fix-shebang $bin
 chmod +x $bin
+cd $HOME
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
