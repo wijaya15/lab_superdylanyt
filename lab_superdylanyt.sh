@@ -35,7 +35,8 @@ echo -e "\e[5;92m   10- Instalar Arch Linux en Termux"
 echo -e "\e[5;92m   11- Crear Servidor FTP en Termux"
 echo -e "\e[5;92m   12- Iniciar Servidor FTP en Termux"
 echo -e "\e[5;92m   13- Instalar Neofetch en Termux"
-echo -e "\e[5;92m   14- Salir"
+echo -e "\e[5;92m   14- Instalar Xfce4 en TermuxUbuntu"
+echo -e "\e[5;92m   15- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -366,6 +367,67 @@ exit
 fi
 ;;
 "14")
+clear
+sudo apt-get update -y && sudo apt-get upgrade -y
+sudo apt-get install xfce4 xfce4-terminal tightvncserver -y
+sudo apt-get install xfe -y
+sudo apt-get clean
+mkdir ~/.vnc
+cd ~/.vnc
+bin=xstartup
+cat > $bin <<- EOM
+#!/bin/bash
+xrdb $HOME/.Xresources
+startxfce4 &
+
+EOM
+
+chmod +x $bin
+cd /usr/local/bin/
+bin2=vncserver-start
+cat > $bin <<- EOM
+export USER=root
+export HOME=/home/ubuntu
+
+vncserver -geometry 1024x768 -depth 24 -name remote-desktop :1
+
+EOM
+
+chmod +x $bin2
+bin3=vncserver-stop
+cat > $bin <<- EOM
+export USER=root
+export HOME=/home/ubuntu
+
+vncserver -kill :1
+rm -rf /tmp/.X1-lock
+rm -rf /tmp/.X11-unix/X1
+
+EOM
+
+chmod +x $bin3
+cd --
+clear
+echo "export DISPLAY=":1"" >> /etc/profile
+source /etc/profile
+clear
+vncserver-start
+echo " Usa ${bin2} para iniciar el Servidor VNC "
+echo " Usa ${bin3} para detener el Servidor VNC "
+echo " El Servidor VNC esta activo en localhost:1 "
+echo " Pulsa ENTER para salir de aqui "
+read ENTER
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"15")
 exit
 ;;
 esac
