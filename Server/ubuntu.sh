@@ -36,14 +36,14 @@ if [ -n "\$(ls -A ubuntu-binds)" ]; then
 fi
 command+=" -b /dev"
 command+=" -b /proc"
-command+=" -b ubuntu-fs/root:/dev/shm"
+command+=" -b ubuntu-fs/home/ubuntu:/dev/shm"
 ## uncomment the following line to have access to the home directory of termux
 #command+=" -b /data/data/com.termux/files/home:/root"
 ## uncomment the following line to mount /sdcard directly to / 
 #command+=" -b /sdcard"
-command+=" -w /root"
+command+=" -w /home/ubuntu"
 command+=" /usr/bin/env -i"
-command+=" HOME=/root"
+command+=" HOME=/home/ubuntu"
 command+=" PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games"
 command+=" TERM=\$TERM"
 command+=" LANG=C.UTF-8"
