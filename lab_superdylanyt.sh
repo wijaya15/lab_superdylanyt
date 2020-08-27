@@ -41,7 +41,7 @@ read res
 case $res in
 "1")
 clear
-apt update && apt upgrade -y
+pkg update && pkg upgrade -y
 pkg install wget -y
 pkg install vim -y
 pkg install neofetch -y
