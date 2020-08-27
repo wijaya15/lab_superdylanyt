@@ -56,10 +56,8 @@ command_not_found_handle() {
 }
 
 setterm -foreground green
-
-echo -e "\e[1;32m"
-neofetch
-echo ""   
+clear
+neofetch  
 setterm -foreground green
 PS1='\033[1;91m\u\[@localhost[\033[1;93m\W\033[1;91m]:\$ \033[1;92m'
 
