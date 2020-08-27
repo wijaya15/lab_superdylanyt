@@ -385,7 +385,7 @@ EOM
 chmod +x $bin
 cd /usr/local/bin/
 bin2=vncserver-start
-cat > $bin <<- EOM
+cat > $bin2 <<- EOM
 export USER=root
 export HOME=/home/ubuntu
 
@@ -395,7 +395,7 @@ EOM
 
 chmod +x $bin2
 bin3=vncserver-stop
-cat > $bin <<- EOM
+cat > $bin3 <<- EOM
 export USER=root
 export HOME=/home/ubuntu
 
