@@ -8,7 +8,7 @@ tarball="ubuntu-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
-		wget "https://www.dropbox.com/s/msd679ztayb4vc7/ubuntu-rootfs.tar.gz" -O $tarball
+		wget "https://www.dropbox.com/s/86d009zfmza6xqz/ubuntu-rootfs.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
