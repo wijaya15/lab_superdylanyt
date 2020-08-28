@@ -387,7 +387,7 @@ cd /usr/local/bin/
 bin2=vncserver-start
 cat > $bin2 <<- EOM
 export USER=root
-export HOME=/home/ubuntu
+export HOME=/root
 
 vncserver -geometry 1024x768 -depth 24 -name remote-desktop :1
 
@@ -397,7 +397,7 @@ chmod +x $bin2
 bin3=vncserver-stop
 cat > $bin3 <<- EOM
 export USER=root
-export HOME=/home/ubuntu
+export HOME=/root
 
 vncserver -kill :1
 rm -rf /tmp/.X1-lock
