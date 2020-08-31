@@ -5,7 +5,7 @@
 #/bin/bash \n\
 echo -e \"\" \n\
 echo -e \"Hemos añadido bash en codigo C!!\" \n\
-read -p \"Pulsa <enter> para continuar\" \n\
+read ENTER \"Pulsa <enter> para continuar\" \n\
 clear\
 "
 
