@@ -22,3 +22,14 @@ chmod +x lab_superdylanyt.sh
 
 ```
 
+Para instalar lab_superdylanyt en TermuxAlpine, ejecuta estos comandos.
+
+```shell
+
+apk add bash 
+apk add wget
+wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/lab_superdylanyt.sh
+chmod +x lab_superdylanyt.sh
+./lab_superdylanyt.sh start
+
+```
