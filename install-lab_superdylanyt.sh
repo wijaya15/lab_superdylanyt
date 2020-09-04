@@ -38,30 +38,6 @@ if [ -d /data/data/com.termux/files/usr/bin ]; then
     clear
   fi
 fi
-if [ -e  /usr/bin/apk ];then
-  if [ ! -e /usr/bin ];then
-     apk update 
-     apk upgrade 
-     apk add bash 
-     apk add wget 
-     wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/lab_superdylanyt.sh
-     chmod +x lab_superdylanyt.sh
-     mv lab_superdylanyt.sh /bin
-     clear    
-   fi
-fi
-if [ -e  /usr/bin/apk ];then
-  if [ ! -e /usr/bin ];then
-     apk update 
-     apk upgrade 
-     apk add bash 
-     apk add wget 
-     wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/lab_superdylanyt.sh
-     chmod +x lab_superdylanyt.sh
-     mv lab_superdylanyt.sh /bin
-     clear    
-   fi
-fi
 clear
 echo " Ejecuta lab_superdylanyt start, para iniciar el sistema lab_superdylanyt "
 exit
