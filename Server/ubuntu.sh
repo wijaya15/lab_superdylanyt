@@ -11,8 +11,10 @@ if [ "$first" != 1 ];then
                 case `dpkg --print-architecture` in
 		aarch64)
 			archurl="arm64" ;;
-		armv7l|armv8l)
+		armv7l)
 			archurl="armhf" ;;
+                armv8l)
+                        archurl="armhf" ;;
                 x86_64)
                         archurl="amd64" ;;	
 		*)
