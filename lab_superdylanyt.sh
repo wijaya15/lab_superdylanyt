@@ -308,8 +308,8 @@ cd $HOME
 source $PREFIX/etc/profile.d/start-services.sh
 sv-enable ftpd
 clear
-mkdir $HOME/Servidor_FTP
-cd $HOME/Servidor_FTP
+mkdir $PREFIX/share/Servidor_FTP
+cd $PREFIX/share/Servidor_FTP
 bin=README.md
 cat > $bin <<- EOM
 # It Works 
@@ -335,7 +335,7 @@ fi
 ;;
 "12")
 clear
-cd $HOME/Servidor_FTP
+cd $PREFIX/share/Servidor_FTP
 clear
 ifconfig wlan0
 echo -e "\e[5;92m Copia la dirección IP y pegalo aquí, luego pulsa ENTER "
