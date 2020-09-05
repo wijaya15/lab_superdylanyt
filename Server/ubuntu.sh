@@ -29,6 +29,8 @@ if [ "$first" != 1 ];then
 	cd "$folder"
 	echo "Decompressing Rootfs, please be patient."
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
+        echo "fixing nameserver, otherwise it can't connect to the internet"
+	echo "nameserver 1.1.1.1" > etc/resolv.conf
 	cd "$cur"
 fi
 mkdir -p ubuntu-binds
