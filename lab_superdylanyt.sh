@@ -342,6 +342,7 @@ echo -e "\e[5;92m Copia la dirección IP y pegalo aquí, luego pulsa ENTER "
 read ip
 clear
 tcpsvd -vE $ip 1024 ftpd
+cd $HOME
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
