@@ -8,7 +8,21 @@ tarball="ubuntu-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo "Download Rootfs, this may take a while base on your internet speed."
-		wget "https://www.dropbox.com/s/yta6cnmposzw25x/ubuntu-rootfs.tar.gz" -O $tarball
+                case `dpkg --print-architecture` in
+		aarch64)
+			archurl="arm64" ;;
+		armv7l)
+			archurl="armhf" ;;
+                armv8l)
+                        archurl="armhf" ;;
+                arm)
+                        archurl="armhf" ;;
+                x86_64)
+                        archurl="amd64" ;;	
+		*)
+			echo "unknown architecture"; exit 1 ;;
+		esac
+		wget "https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-${archurl}-root.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
