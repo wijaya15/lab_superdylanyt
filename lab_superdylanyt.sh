@@ -228,7 +228,7 @@ cd $HOME
 rm -rf ubuntu.sh
 cd $HOME
 clear
-echo " Ejecuta ${ubuntu} para iniciar Ubuntu "
+echo " Ejecuta startubuntu para iniciar Ubuntu "
 echo " Pulsa ENTER para salir de aquí "
 read ENTER
 clear
