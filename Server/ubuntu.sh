@@ -39,7 +39,7 @@ if [ "$first" != 1 ];then
 	cd "$cur"
 fi
 mkdir -p ubuntu-binds
-bin=start-ubuntu.sh
+bin=startubuntu
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
