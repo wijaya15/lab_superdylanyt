@@ -222,22 +222,8 @@ fi
 "7")
 clear
 pkg update && pkg upgrade
-mkdir $PREFIX/share/Ubuntu
-cd $PREFIX/share/Ubuntu
 pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/ubuntu.sh && bash ubuntu.sh 
-clear
-rm ubuntu.sh
-cd $PREFIX/bin
-ubuntu=startubuntu
-cat > $ubuntu <<- EOM
-clear
-cd $PREFIX/share/Ubuntu
-./start-ubuntu.sh
-
-EOM
-
-termux-fix-shebang $ubuntu
-chmod +x $ubuntu
+rm -rf $PREFIX/share/Ubuntu/ubuntu.sh
 clear
 cd $HOME
 echo " Ejecuta ${ubuntu} para iniciar Ubuntu "
