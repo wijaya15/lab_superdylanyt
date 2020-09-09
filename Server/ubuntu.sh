@@ -1,4 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
+DISTRO_NAME=Ubuntu
+mkdir $PREFIX/share/$DISTRO_NAME
+cd $PREFIX/share/$DISTRO_NAME
 folder=ubuntu-fs
 if [ -d "$folder" ]; then
 	first=1
@@ -40,6 +43,7 @@ bin=start-ubuntu.sh
 echo "writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
+cd $PREFIX/share/$DISTRO_NAME
 cd \$(dirname \$0)
 ## unset LD_PRELOAD in case termux-exec is installed
 unset LD_PRELOAD
@@ -78,6 +82,9 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
+echo "move launch script to bin folder"
+mv $bin $PREFIX/bin
 echo "removing image for some space"
 rm $tarball
-echo "You can now launch Ubuntu with the ./${bin} script"
+echo "You can now launch Ubuntu with the ${bin} script"
+cd $HOME
