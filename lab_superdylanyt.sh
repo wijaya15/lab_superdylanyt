@@ -224,11 +224,20 @@ clear
 pkg update && pkg upgrade
 pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/ubuntu.sh && bash ubuntu.sh 
 clear
-cd $HOME
 rm -rf ubuntu.sh
+cd $PREFIX/bin
+ubuntu=startubuntu
+cat > $ubuntu <<- EOM
+clear
+cd $PREFIX/share/Ubuntu
+./start-ubuntu.sh
+EOM
+
+termux-fix-shebang $ubuntu
+chmod +x $ubuntu
 cd $HOME
 clear
-echo " Ejecuta startubuntu para iniciar Ubuntu "
+echo " Ejecuta ${ubuntu} para iniciar Ubuntu "
 echo " Pulsa ENTER para salir de aquí "
 read ENTER
 clear
