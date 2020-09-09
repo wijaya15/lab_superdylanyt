@@ -224,6 +224,7 @@ clear
 pkg update && pkg upgrade
 pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/ubuntu.sh && bash ubuntu.sh 
 clear
+cd $HOME
 rm -rf ubuntu.sh
 cd $PREFIX/bin
 ubuntu=startubuntu
