@@ -35,38 +35,6 @@ if [ "$first" != 1 ];then
 	echo "nameserver 1.1.1.1" > etc/resolv.conf
         echo "fixing hosts, otherwise you can't use sudo"
         echo "127.0.0.1 localhost" > etc/hosts
-        local file_name
-	file_name=$(curl --fail --silent "https://mirror.rackspace.com/archlinux/iso/latest/md5sums.txt" | grep bootstrap | awk '{ print $2 }')
-	if [ -n "$file_name" ]; then
-	echo "http://mirror.rackspace.com/archlinux/iso/latest/${file_name}"
-	fi
-	;;
-        if [ "$(uname -m)" = "x86_64" ]; then
-		sed -i 's/#Server = http/Server = http/' ./etc/pacman.d/mirrorlist
-	fi
-        run_proot_cmd pacman-key --init
-	if [ "$(uname -m)" = "x86_64" ]; then
-		run_proot_cmd pacman-key --populate archlinux
-	else
-		run_proot_cmd pacman-key --populate archlinuxarm
-	fi
-        case "$(uname -m)" in
-		aarch64)
-			run_proot_cmd pacman -Rnsc --noconfirm dbus linux-aarch64 systemd
-			;;
-		armv7l)
-                        run_proot_cmd pacman -Rnsc --noconfirm dbus linux-armv7 systemd
-			;;
-                armv8l)
-			run_proot_cmd pacman -Rnsc --noconfirm dbus linux-armv7 systemd
-			;;
-                arm)
-                        run_proot_cmd pacman -Rnsc --noconfirm dbus linux-armv7 systemd
-			;;
-		x86_64)
-			run_proot_cmd pacman -Rnsc --noconfirm dbus systemd
-			;;
-	esac
 	cd "$cur"
 fi
 mkdir -p arch-binds
