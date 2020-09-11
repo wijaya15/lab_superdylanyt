@@ -2,7 +2,7 @@
 DISTRO_NAME=Arch
 mkdir $PREFIX/share/$DISTRO_NAME
 cd $PREFIX/share/$DISTRO_NAME
-folder=ubuntu-fs
+folder=arch-fs
 if [ -d "$folder" ]; then
 	first=1
 	echo "skipping downloading"
