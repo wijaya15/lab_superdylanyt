@@ -76,6 +76,23 @@ echo "fixing shebang of $bin"
 termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
+echo "creating an additional script"
+bin2=additional.sh
+cat > $bin2 <<- EOM
+echo "please wait"
+chmod 755 -R /bin /home /mnt /run /srv /tmp /var /boot /etc /lib /opt /root /sbin /sys /usr
+echo "disable-scdaemon" > /etc/pacman.d/gnupg/gpg-agent.conf
+pacman-key --init
+pacman-key --populate archlinuxarm
+
+EOM
+
+echo "fixing shebang of $bin2"
+termux-fix-shebang $bin2
+echo "making $bin2 executable"
+chmod +x $bin2
+echo "moving $bin2 to root folder"
+mv $bin2 arch-fs/root
 echo "removing image for some space"
 rm $tarball
 echo "You can now launch Ubuntu with the ./${bin} script"
