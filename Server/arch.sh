@@ -31,10 +31,6 @@ if [ "$first" != 1 ];then
 	cd "$folder"
 	echo "Decompressing Rootfs, please be patient."
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
-        echo "fixing nameserver, otherwise it can't connect to the internet"
-	echo "nameserver 1.1.1.1" > etc/resolv.conf
-        echo "fixing hosts, otherwise you can't use sudo"
-        echo "127.0.0.1 localhost" > etc/hosts
 	cd "$cur"
 fi
 mkdir -p arch-binds
