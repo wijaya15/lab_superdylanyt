@@ -36,7 +36,8 @@ echo -e "\e[5;92m   11- Crear Servidor FTP en Termux"
 echo -e "\e[5;92m   12- Iniciar Servidor FTP en Termux"
 echo -e "\e[5;92m   13- Instalar Neofetch en Termux"
 echo -e "\e[5;92m   14- Instalar Xfce4 en TermuxUbuntu"
-echo -e "\e[5;92m   15- Salir"
+echo -e "\e[5;92m   15- Instalar VPN en Termux"
+echo -e "\e[5;92m   16- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -429,6 +430,40 @@ exit
 fi
 ;;
 "15")
+clear
+pkg update -y && pkg upgrade -y
+pkg install tor -y
+pkg install proxychains-ng -y
+pkg install net-tools -y
+pkg install procps -y
+cd $PREFIX/bin
+bin=startvpn
+cat > $bin <<- EOM
+proxychains4 clear
+proxychains4 bash
+
+EOM
+
+termux-fix-shebang $bin
+chmod +x $bin
+clear
+cd $HOME
+clear
+echo " Antes de inciar la VPN debes, estar conectado a red Tor "
+echo " Para conectarte a la Red Tor debes ejecutar el comando tor "
+echo " Una vez conectado en la Red Tor debes iniciar la VPN ejecutando el comando startvpn "
+echo " Pulsa ENTER para salir de aqui "
+read ENTER
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"16")
 exit
 ;;
 esac
