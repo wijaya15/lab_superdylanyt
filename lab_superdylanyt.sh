@@ -37,7 +37,8 @@ echo -e "\e[5;92m   12- Iniciar Servidor FTP en Termux"
 echo -e "\e[5;92m   13- Instalar Neofetch en Termux"
 echo -e "\e[5;92m   14- Instalar Xfce4 en TermuxUbuntu"
 echo -e "\e[5;92m   15- Instalar VPN en Termux"
-echo -e "\e[5;92m   16- Salir"
+echo -e "\e[5;92m   16- Crear Servidor WEB en TermuxUbuntu"
+echo -e "\e[5;92m   17- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -465,6 +466,22 @@ exit
 fi
 ;;
 "16")
+clear
+apt-get update -y && apt-get upgrade -y
+apt-get install sudo -y
+sudo apt-get install apache2 php -y
+sudo apt-get install neovim -y
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"17")
 exit
 ;;
 esac
