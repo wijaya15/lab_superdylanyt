@@ -469,8 +469,10 @@ fi
 clear
 apt-get update -y && apt-get upgrade -y
 apt-get install sudo -y
+sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install apache2 php -y
 sudo apt-get install neovim -y
+sudo apt-get install net-tools -y
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
