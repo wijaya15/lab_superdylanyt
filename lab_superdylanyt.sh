@@ -450,7 +450,7 @@ chmod +x $bin
 clear
 cd $HOME
 clear
-echo " Antes de inciar la VPN debes, estar conectado a red Tor "
+echo " Antes de inciar la VPN debes, estar conectado a la red Tor "
 echo " Para conectarte a la Red Tor debes ejecutar el comando tor "
 echo " Una vez conectado a la Red Tor debes iniciar la VPN ejecutando el comando ${bin} "
 echo " Pulsa ENTER para salir de aqui "
