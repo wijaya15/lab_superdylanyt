@@ -454,6 +454,7 @@ echo " Para conectarte a la Red Tor debes ejecutar el comando tor "
 echo " Una vez conectado a la Red Tor debes iniciar la VPN ejecutando el comando ${bin} "
 echo " Pulsa ENTER para salir de aqui "
 read ENTER
+clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
 if [ "$s" = "s" ]; then 
