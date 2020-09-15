@@ -287,6 +287,7 @@ clear
 cd $HOME
 pkg update && pkg upgrade
 pkg install git -y
+pkg install proot -y
 git clone https://github.com/termux/proot-distro
 cd $HOME/proot-distro
 chmod +x *;ls
