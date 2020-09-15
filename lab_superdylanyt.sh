@@ -286,9 +286,27 @@ fi
 clear
 cd $HOME
 pkg update && pkg upgrade
-pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/TermuxArch/TermuxArch/master/setupTermuxArch.bash
-chmod +x setupTermuxArch.bash
-bash setupTermuxArch.bash
+pkg install git -y
+git clone https://github.com/termux/proot-distro
+cd $HOME/proot-distro
+chmod +x *;ls
+./install.sh
+cd $HOME
+rm -rf proot-distro
+clear
+pkg install wget openssl-tool proot -y && hash -r && proot-distro install archlinux
+clear
+cd $PREFIX/bin
+bin=startarch
+cat > $bin <<- EOM
+clear
+proot-distro login archlinux
+EOM
+
+termux-fix-shebang $bin
+chmod +x $bin
+clear
+cd $HOME
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
