@@ -91,7 +91,7 @@ pkg install wget -y
 pkg install tsu -y && hash -r
 clear
 cd $PREFIX/bin
-bin=start-root.sh
+bin=startroot
 cat > $bin <<- EOM
 #!/bin/bash
 setterm -foreground green
