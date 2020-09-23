@@ -295,7 +295,7 @@ chmod +x *;ls
 cd $HOME
 rm -rf proot-distro
 clear
-cd $PREFIX/etc/proot-distro/
+cd $PREFIX/etc/proot-distro
 wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/arch.sh
 chmod +x arch.sh
 cd $HOME
