@@ -309,6 +309,10 @@ chmod +x $bin
 clear
 cd $HOME
 clear
+echo " Ejecuta ${bin} para iniciar Arch Linux "
+echo " Pulsa ENTER para salir de aquí "
+read ENTER
+clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
 if [ "$s" = "s" ]; then 
