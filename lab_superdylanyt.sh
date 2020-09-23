@@ -295,7 +295,12 @@ chmod +x *;ls
 cd $HOME
 rm -rf proot-distro
 clear
-pkg install wget openssl-tool proot -y && hash -r && proot-distro install archlinux
+cd $PREFIX/etc/proot-distro/
+wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/arch.sh
+chmod +x arch.sh
+cd $HOME
+clear
+pkg install wget openssl-tool proot -y && hash -r && proot-distro install arch
 clear
 cd $PREFIX/bin
 bin=startarch
