@@ -306,7 +306,7 @@ cd $PREFIX/bin
 bin=startarch
 cat > $bin <<- EOM
 clear
-proot-distro login archlinux
+proot-distro login arch
 EOM
 
 termux-fix-shebang $bin
