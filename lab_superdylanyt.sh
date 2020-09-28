@@ -512,6 +512,10 @@ exit
 fi
 ;;
 "17")
+clear
+echo " [+] Saliendo..... "
+echo " [+] Bye :D "
+clear
 exit
 ;;
 esac
