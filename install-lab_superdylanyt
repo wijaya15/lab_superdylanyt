@@ -1,5 +1,6 @@
 #!/bin/sh
 clear
+echo -e "\n\e[5;96m [+] Instalando lab_superdylanyt "
 if [ -d $HOME ]; then
   home=$HOME
 else
