@@ -10,7 +10,7 @@ fi
 tarball="ubuntu-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
-		echo "Download Rootfs, this may take a while base on your internet speed."
+		echo " [+] Download Rootfs, this may take a while base on your internet speed."
                 case `dpkg --print-architecture` in
 		aarch64)
 			archurl="arm64" ;;
@@ -23,24 +23,24 @@ if [ "$first" != 1 ];then
                 x86_64)
                         archurl="amd64" ;;	
 		*)
-			echo "unknown architecture"; exit 1 ;;
+			echo " [+] unknown architecture"; exit 1 ;;
 		esac
-		wget "https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-${archurl}-root.tar.gz" -O $tarball
+		curl --progress-bar -L --fail --retry 4 "https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-${archurl}-root.tar.gz" -O $tarball
 	fi
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
-	echo "Decompressing Rootfs, please be patient."
+	echo " [+] Decompressing Rootfs, please be patient."
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
-        echo "fixing nameserver, otherwise it can't connect to the internet"
+        echo " [+] fixing nameserver, otherwise it can't connect to the internet"
 	echo "nameserver 1.1.1.1" > etc/resolv.conf
-        echo "fixing hosts, otherwise you can't use sudo"
+        echo " [+] fixing hosts, otherwise you can't use sudo"
         echo "127.0.0.1 localhost" > etc/hosts
 	cd "$cur"
 fi
 mkdir -p ubuntu-binds
 bin=start-ubuntu.sh
-echo "writing launch script"
+echo " [+] writing launch script"
 cat > $bin <<- EOM
 #!/bin/bash
 cd \$(dirname \$0)
@@ -77,11 +77,11 @@ else
 fi
 EOM
 
-echo "fixing shebang of $bin"
+echo " [+] fixing shebang of $bin"
 termux-fix-shebang $bin
-echo "making $bin executable"
+echo " [+] making $bin executable"
 chmod +x $bin
-echo "removing image for some space"
+echo " [+] removing image for some space"
 rm $tarball
-echo "You can now launch Ubuntu with the ./${bin} script"
+echo " [+] You can now launch Ubuntu with the ./${bin} script"
 cd $HOME
