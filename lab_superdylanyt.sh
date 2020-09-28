@@ -6,7 +6,7 @@ case "$1" in
             ;;
 
           update)
-             wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/update-lab_superdylanyt.sh
+             curl --progress-bar -L --fail --retry 4 -O https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/update-lab_superdylanyt.sh
              chmod +x update-lab_superdylanyt.sh
              ./update-lab_superdylanyt.sh
              exit
