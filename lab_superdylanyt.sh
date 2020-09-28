@@ -208,6 +208,7 @@ fi
 ;;
 "6")
 clear
+echo -e "\e[5;36m [+] Instalando xfce4-terminal en TermuxAlpine "
 apk update
 apk upgrade
 apk add xvfb openbox xfce4-terminal x11vnc
@@ -220,6 +221,7 @@ DISPLAY=:1 xfce4-terminal &
 echo -e "\e[5;96m Pulsa ENTER para salir de aqui "
 read ENTER
 setterm -foreground white
+echo -e "\e[5;36m [+] Instalación Completada "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
@@ -232,6 +234,7 @@ fi
 ;;
 "7")
 clear
+echo -e "\e[5;36m [+] Instalando Ubuntu en Termux "
 pkg update && pkg upgrade
 pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/ubuntu.sh && bash ubuntu.sh 
 clear
@@ -252,6 +255,7 @@ clear
 echo " Ejecuta ${ubuntu} para iniciar Ubuntu "
 echo " Pulsa ENTER para salir de aquí "
 read ENTER
+echo -e "\e[5;36m [+] Instalación Completada "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
@@ -264,9 +268,11 @@ fi
 ;;
 "8")
 clear
+echo -e "\e[5;36m [+] Instalando Alpine en Termux "
 cd $HOME
 pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/Hax4us/TermuxAlpine/master/TermuxAlpine.sh && bash TermuxAlpine.sh
 rm -rf TermuxAlpine.sh
+echo -e "\e[5;36m [+] Instalación Completada "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
