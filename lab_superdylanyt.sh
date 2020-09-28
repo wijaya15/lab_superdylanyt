@@ -39,7 +39,8 @@ echo -e "\e[5;97m   13- Instalar Neofetch en Termux"
 echo -e "\e[5;96m   14- Instalar Xfce4 en TermuxUbuntu"
 echo -e "\e[5;94m   15- Instalar VPN en Termux"
 echo -e "\e[5;95m   16- Crear Servidor WEB en TermuxUbuntu"
-echo -e "\e[5;93m   17- Salir"
+echo -e "\e[5;93m   17- Instalar SSHPLUS MANAGER FREE "
+echo -e "\e[5;92m   18- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -545,6 +546,26 @@ exit
 fi
 ;;
 "17")
+clear
+cd $HOME
+echo -e "\e[5;36m [+] Instalando SSHPLUS MANAGER FREE "
+curl --progress-bar -L --fail --retry 4 -O https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/SSHPLUS-MANAGER-FREE/master/Plus
+chmod +x Plus
+clear
+./Plus
+clear
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"18")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
