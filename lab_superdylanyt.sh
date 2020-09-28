@@ -9,6 +9,7 @@ case "$1" in
              curl --progress-bar -L --fail --retry 4 -O https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/update-lab_superdylanyt.sh
              chmod +x update-lab_superdylanyt.sh
              ./update-lab_superdylanyt.sh
+             clear
              exit
            ;;
         
