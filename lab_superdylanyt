@@ -7,8 +7,8 @@ case "$1" in
 
           update)
              curl --progress-bar -L --fail --retry 4 -O https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/update-lab_superdylanyt.sh
-             chmod +x update-lab_superdylanyt.sh
-             ./update-lab_superdylanyt.sh
+             chmod +x update-lab_superdylanyt
+             ./update-lab_superdylanyt
              clear
              exit
            ;;
@@ -39,7 +39,7 @@ echo -e "\e[5;97m   13- Instalar Neofetch en Termux"
 echo -e "\e[5;96m   14- Instalar Xfce4 en TermuxUbuntu"
 echo -e "\e[5;94m   15- Instalar VPN en Termux"
 echo -e "\e[5;95m   16- Crear Servidor WEB en TermuxUbuntu"
-echo -e "\e[5;93m   17- Instalar SSHPLUS MANAGER FREE "
+echo -e "\e[5;93m   17- Instalar SSHPLUS MANAGER FREE"
 echo -e "\e[5;92m   18- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
