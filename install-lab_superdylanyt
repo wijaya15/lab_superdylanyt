@@ -126,9 +126,9 @@ if [ -e lab_superdylanyt ]; then
 
 if [ -e $bin/lab_superdylanyt ]; then
     clear
-    echo " \033[00m lab_superdylanyt \033[01;32mInstalación Completada !!"
+    echo -e "\n\e[5;96m [+] Instalación Completada "
   else
     clear
-    echo " \033[01;31mError: \033[00m: lab_superdylanyt \033[01;31mHubo un error al instalar !!"
+    echo -e "\n\e[5;96m [+] Hubo un error al instalar "
   fi
 fi
