@@ -61,7 +61,7 @@ setterm -foreground green
 clear
 neofetch  
 setterm -foreground green
-PS1='\033[1;91m\u\[@localhost[\033[1;93m\W\033[1;91m]:\$ \033[1;92m'
+PS1='\033[1;32m\u\[@localhost[\033[1;93m\W\033[1;32m]:\$ \033[1;37m'
 
 EOM
 
