@@ -45,6 +45,7 @@ read res
 case $res in
 "1")
 clear
+echo -e "\e[5;36m [+] Instalando Banner en Termux "
 pkg update && pkg upgrade -y
 pkg install wget -y
 pkg install vim -y
@@ -67,6 +68,7 @@ PS1='\033[1;92m\u\[@localhost[\033[1;93m\W\033[1;92m]:\$ \033[1;97m'
 EOM
 
 cd $HOME
+echo -e "\e[5;36m [+] Instalación Completada "
 clear
 echo -e "\n\e[5;96m Regresar al menu s/n?"
 read s
