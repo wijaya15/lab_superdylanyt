@@ -2,7 +2,7 @@
 clear
 case "$1" in
 	  start)
-	   echo " Iniciando Sistema "
+	   echo " [+] Iniciando Sistema "
             ;;
 
           update)
@@ -81,6 +81,7 @@ fi
 ;;
 "2")
 clear
+echo -e "\e[5;36m [+] Instalando Root en Termux "
 pkg update && pkg upgrade
 clear
 pkg install root-repo -y
@@ -106,6 +107,7 @@ EOM
 termux-fix-shebang $bin
 chmod +x $bin
 cd $HOME
+echo -e "\e[5;36m [+] Instalación Completada "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
@@ -118,6 +120,7 @@ fi
 ;;
 "3")
 clear
+echo -e "\e[5;36m [+] Creando Servidor SSH "
 pkg install openssh -y
 pkg install nmap -y
 pkg install net-tools -y
@@ -135,6 +138,7 @@ passwd $user
 ifconfig wlan0
 echo -e "\e[5;92m Copia la dirección IP y pegalo aquí, luego pulsa ENTER "
 read ip
+echo -e "\e[5;36m [+] Finalizado "
 clear
 echo -e "\e[5;92m Copia este comando y ejecutalo en cualquier terminal para acceder al server ssh "
 echo -e "\e[5;92m ssh $user@$ip -p $port "
@@ -162,6 +166,7 @@ fi
 ;;
 "5")
 clear
+echo -e "\e[5;36m [+] Creando un Servidor WEB en Termux "
 pkg update && pkg upgrade
 pkg install php-apache -y
 pkg install mariadb -y
@@ -190,6 +195,7 @@ EOM
 
 echo '<?php phpinfo();'> info.php
 cd $HOME
+echo -e "\e[5;36m [+] Finalizado "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
