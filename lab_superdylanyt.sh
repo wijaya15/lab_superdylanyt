@@ -22,11 +22,11 @@ menu()
 {
 clear
 echo -e "\n\e[93m@lab_superdylanyt\n"
-echo -e "\n\e[5;91m   1- Instalar Banner en Termux"
+echo -e "\n\e[5;97m   1- Instalar Banner en Termux"
 echo -e "\e[5;96m   2- Instalar Root en Termux"
-echo -e "\e[5;92m   3- Crear Servidor SSH en Termux"
-echo -e "\e[5;92m   4- Iniciar Htop"
-echo -e "\e[5;92m   5- Crear Servidor WEB en Termux"
+echo -e "\e[5;94m   3- Crear Servidor SSH en Termux"
+echo -e "\e[5;95m   4- Iniciar Htop"
+echo -e "\e[5;93m   5- Crear Servidor WEB en Termux"
 echo -e "\e[5;92m   6- Instalar xfce4-terminal en TermuxAlpine"
 echo -e "\e[5;92m   7- Instalar Ubuntu en Termux"
 echo -e "\e[5;92m   8- Instalar Alpine Linux en Termux"
@@ -61,7 +61,7 @@ setterm -foreground green
 clear
 neofetch  
 setterm -foreground green
-PS1='\033[1;32m\u\[@localhost[\033[1;93m\W\033[1;32m]:\$ \033[1;37m'
+PS1='\033[1;92m\u\[@localhost[\033[1;93m\W\033[1;92m]:\$ \033[1;97m'
 
 EOM
 
