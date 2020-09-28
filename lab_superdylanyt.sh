@@ -236,7 +236,7 @@ fi
 clear
 echo -e "\e[5;36m [+] Instalando Ubuntu en Termux "
 pkg update && pkg upgrade
-pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/ubuntu.sh && bash ubuntu.sh 
+pkg install wget openssl-tool proot -y && hash -r && wget -c --quiet --show-progress https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/ubuntu.sh && bash ubuntu.sh 
 clear
 cd $HOME
 rm -rf ubuntu.sh
