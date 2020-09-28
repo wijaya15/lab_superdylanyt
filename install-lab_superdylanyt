@@ -131,4 +131,4 @@ if [ -e $bin/lab_superdylanyt ]; then
     clear
     echo -e "\n\e[5;96m [+] Hubo un error al instalar "
   fi
-fi
+
