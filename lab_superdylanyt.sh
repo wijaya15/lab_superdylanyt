@@ -285,8 +285,10 @@ fi
 ;;
 "9")
 clear
+echo -e "\e[5;36m [+] Instalando w3m en Termux "
 pkg update && pkg upgrade
 pkg install w3m -y
+echo -e "\e[5;36m [+] Instalación Completada "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
@@ -299,6 +301,7 @@ fi
 ;;
 "10")
 clear
+echo -e "\e[5;36m [+] Instalando Arch Linux en Termux "
 cd $HOME
 pkg update && pkg upgrade
 pkg install git -y
@@ -328,6 +331,7 @@ termux-fix-shebang $bin
 chmod +x $bin
 clear
 cd $HOME
+echo -e "\e[5;36m [+] Instalación Completada "
 clear
 echo " Ejecuta ${bin} para iniciar Arch Linux "
 echo " Pulsa ENTER para salir de aquí "
@@ -344,6 +348,7 @@ fi
 ;;
 "11")
 clear
+echo -e "\e[5;36m [+] Creando Servidor FTP en Termux "
 pkg install busybox termux-services -y
 pkg install net-tools -y
 pkg install procps -y
@@ -361,6 +366,7 @@ EOM
 
 clear
 cd $HOME
+echo -e "\e[5;36m [+] Instalación Completada "
 clear
 echo -e "\e[5;96m Ingresa al menu y escribe 12 para iniciar el servidor FTP "
 echo -e "\e[5;96m Pulsa ENTER para salir de aqui "
@@ -378,6 +384,7 @@ fi
 ;;
 "12")
 clear
+echo -e "\e[5;36m [+] Iniciando Servidor FTP "
 cd $PREFIX/share/Servidor_FTP
 clear
 ifconfig wlan0
@@ -386,6 +393,7 @@ read ip
 clear
 tcpsvd -vE $ip 1024 ftpd
 cd $HOME
+echo -e "\e[5;36m [+] Finalizado "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
@@ -398,8 +406,10 @@ fi
 ;;
 "13")
 clear
+echo -e "\e[5;36m [+] Instalando neofetch en Termux "
 pkg update && pkg upgrade
 pkg install neofetch -y
+echo -e "\e[5;36m [+] Instalación Completada "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
@@ -412,6 +422,7 @@ fi
 ;;
 "14")
 clear
+echo -e "\e[5;36m [+] Instalando xfce4 en Ubuntu "
 apt-get update -y && apt-get upgrade -y
 apt-get install sudo -y
 sudo apt-get update -y && sudo apt-get upgrade -y
@@ -457,6 +468,8 @@ clear
 echo "export DISPLAY=":1"" >> /etc/profile
 source /etc/profile
 clear
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
 vncserver-start
 echo " Usa ${bin2} para iniciar el Servidor VNC "
 echo " Usa ${bin3} para detener el Servidor VNC "
@@ -475,6 +488,7 @@ fi
 ;;
 "15")
 clear
+echo -e "\e[5;36m [+] Instalando VPN en Termux "
 pkg update -y && pkg upgrade -y
 pkg install tor -y
 pkg install proxychains-ng -y
@@ -492,6 +506,7 @@ termux-fix-shebang $bin
 chmod +x $bin
 clear
 cd $HOME
+echo -e "\e[5;36m [+] Instalación Completada "
 clear
 echo " Antes de inciar la VPN debes, estar conectado a la red Tor "
 echo " Para conectarte a la Red Tor debes ejecutar el comando tor "
@@ -510,12 +525,15 @@ fi
 ;;
 "16")
 clear
+echo -e "\e[5;36m [+] Creando Servidor WEB en Ubuntu "
 apt-get update -y && apt-get upgrade -y
 apt-get install sudo -y
 sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install apache2 php -y
 sudo apt-get install neovim -y
 sudo apt-get install net-tools -y
+clear
+echo -e "\e[5;36m [+] Finalizado "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
