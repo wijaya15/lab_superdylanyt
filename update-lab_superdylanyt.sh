@@ -6,5 +6,6 @@ curl --progress-bar -L --fail --retry 4 -O https://raw.githubusercontent.com/dyl
 chmod +x lab_superdylanyt.sh
 clear
 echo " [+] Actualización Completada "
+clear
 rm -rf update-lab_superdylanyt.sh
              
