@@ -271,7 +271,7 @@ fi
 clear
 echo -e "\e[5;36m [+] Instalando Alpine en Termux "
 cd $HOME
-pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/Hax4us/TermuxAlpine/master/TermuxAlpine.sh && bash TermuxAlpine.sh
+pkg install wget openssl-tool proot -y && hash -r && wget -c --quiet --show-progress https://raw.githubusercontent.com/Hax4us/TermuxAlpine/master/TermuxAlpine.sh && bash TermuxAlpine.sh
 rm -rf TermuxAlpine.sh
 echo -e "\e[5;36m [+] Instalación Completada "
 clear
@@ -315,7 +315,7 @@ cd $HOME
 rm -rf proot-distro
 clear
 cd $PREFIX/etc/proot-distro
-wget https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/arch.sh
+wget -c --quiet --show-progress https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/arch.sh
 chmod +x arch.sh
 cd $HOME
 clear
