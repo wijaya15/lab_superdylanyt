@@ -129,15 +129,15 @@ pkg install procps -y
 nmap localhost
 sshd
 nmap localhost
-echo -e "\e[5;92m Copia el puerto y pegalo aquí, luego pulsa ENTER "
+echo -e "\e[5;36m [+] Copia el puerto y pegalo aquí, luego pulsa ENTER "
 read port
 whoami
-echo -e "\e[5;92m Copia tu nombre de usuario y pegalo aquí, luego pulsa ENTER "
+echo -e "\e[5;36m [+] Copia tu nombre de usuario y pegalo aquí, luego pulsa ENTER "
 read user
 clear
 passwd $user
 ifconfig wlan0
-echo -e "\e[5;92m Copia la dirección IP y pegalo aquí, luego pulsa ENTER "
+echo -e "\e[5;36m [+] Copia la dirección IP y pegalo aquí, luego pulsa ENTER "
 read ip
 echo -e "\e[5;36m [+] Finalizado "
 clear
