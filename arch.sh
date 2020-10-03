@@ -12,22 +12,26 @@ tarball="arch-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
 		echo " [+] Download Rootfs, this may take a while base on your internet speed."
-                case `dpkg --print-architecture` in
+                function install {
+	     case "$(uname -m)" in
 		aarch64)
-			archurl="arm64" ;;
-		armv7l)
-			archurl="armhf" ;;
-                armv8l)
-                        archurl="armhf" ;;
-                arm)
-                        archurl="armhf" ;;
-                x86_64)
-                        archurl="amd64" ;;	
-		*)
-			echo " [+] unknown architecture"; exit 1 ;;
-		esac
-		wget -c --quiet --show-progress "https://partner-images.canonical.com/core/focal/current/ubuntu-focal-core-cloudimg-${archurl}-root.tar.gz" -O $tarball
-	fi
+			archurl="https://eu.mirror.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz"
+			;;
+		armv7l|armv8l)
+			archurl="https://eu.mirror.archlinuxarm.org/os/ArchLinuxARM-armv7-latest.tar.gz"
+			;;
+		x86_64)
+			archurl="http://mirrors.evowise.com/archlinux/iso/2020.09.01/archlinux-bootstrap-2020.09.01-x86_64.tar.gz"
+			local file_name
+			file_name=$(curl --fail --silent "https://mirror.rackspace.com/archlinux/iso/latest/md5sums.txt" | grep bootstrap | awk '{ print $2 }')
+			if [ -n "$file_name" ]; then
+				echo "http://mirror.rackspace.com/archlinux/iso/latest/${file_name}"
+			fi
+			;;
+	esac
+}
+		wget -c --quiet --show-progress "${archurl}" -O $tarball
+        fi
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
