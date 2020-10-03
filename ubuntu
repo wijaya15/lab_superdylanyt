@@ -33,6 +33,7 @@ if [ "$first" != 1 ];then
 	cd "$folder"
 	echo " [+] Decompressing Rootfs, please be patient."
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
+        function restart {
         local profile_script
 		if [ -d "${INSTALLED_ROOTFS_DIR}/etc/profile.d" ]; then
 			profile_script="${INSTALLED_ROOTFS_DIR}/etc/profile.d/termux-proot.sh"
@@ -102,6 +103,8 @@ if [ "$first" != 1 ];then
 				echo "aid_$(id -gn "$g"):*::root,aid_$(id -un)" >> "${INSTALLED_ROOTFS_DIR}/etc/gshadow"
 			fi
 		done
+}
+        restart
 	cd "$cur"
 fi
 mkdir -p ubuntu-binds
