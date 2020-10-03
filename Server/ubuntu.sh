@@ -1,5 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/bash
 DISTRO_NAME=Ubuntu
+INSTALLED_ROOTFS_DIR=$PREFIX/share/$DISTRO_NAME/ubuntu-fs
 mkdir $PREFIX/share/$DISTRO_NAME
 cd $PREFIX/share/$DISTRO_NAME
 folder=ubuntu-fs
@@ -32,10 +33,78 @@ if [ "$first" != 1 ];then
 	cd "$folder"
 	echo " [+] Decompressing Rootfs, please be patient."
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
-        echo " [+] fixing nameserver, otherwise it can't connect to the internet"
-	echo "nameserver 1.1.1.1" > etc/resolv.conf
-        echo " [+] fixing hosts, otherwise you can't use sudo"
-        echo "127.0.0.1 localhost" > etc/hosts
+        function restart {
+        local profile_script
+		if [ -d "${INSTALLED_ROOTFS_DIR}/etc/profile.d" ]; then
+			profile_script="${INSTALLED_ROOTFS_DIR}/etc/profile.d/termux-proot.sh"
+		else
+			profile_script="${INSTALLED_ROOTFS_DIR}/etc/profile"
+		fi
+        cat <<- EOF >> "$profile_script"
+		export ANDROID_ART_ROOT=${ANDROID_ART_ROOT-}
+		export ANDROID_DATA=${ANDROID_DATA-}
+		export ANDROID_I18N_ROOT=${ANDROID_I18N_ROOT-}
+		export ANDROID_ROOT=${ANDROID_ROOT-}
+		export ANDROID_RUNTIME_ROOT=${ANDROID_RUNTIME_ROOT-}
+		export ANDROID_TZDATA_ROOT=${ANDROID_TZDATA_ROOT-}
+		export BOOTCLASSPATH=${BOOTCLASSPATH-}
+		export COLORTERM=${COLORTERM-}
+		export DEX2OATBOOTCLASSPATH=${DEX2OATBOOTCLASSPATH-}
+		export EXTERNAL_STORAGE=${EXTERNAL_STORAGE-}
+		export LANG=C.UTF-8
+		export PATH=\${PATH}:/data/data/com.termux/files/usr/bin:/system/bin:/system/xbin
+		export PREFIX=${PREFIX-/data/data/com.termux/files/usr}
+		export TERM=${TERM-xterm-256color}
+		export TMPDIR=/tmp
+		EOF
+                chmod 700 "${INSTALLED_ROOTFS_DIR}/proc" >/dev/null 2>&1
+		cat <<- EOF > "${INSTALLED_ROOTFS_DIR}/proc/.stat"
+		cpu  1050008 127632 898432 43828767 37203 63 99244 0 0 0
+		cpu0 212383 20476 204704 8389202 7253 42 12597 0 0 0
+		cpu1 224452 24947 215570 8372502 8135 4 42768 0 0 0
+		cpu2 222993 17440 200925 8424262 8069 9 17732 0 0 0
+		cpu3 186835 8775 195974 8486330 5746 3 8360 0 0 0
+		cpu4 107075 32886 48854 8688521 3995 4 5758 0 0 0
+		cpu5 90733 20914 27798 1429573 2984 1 11419 0 0 0
+		intr 53261351 0 686 1 0 0 1 12 31 1 20 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7818 0 0 0 0 0 0 0 0 255 33 1912 33 0 0 0 0 0 0 3449534 2315885 2150546 2399277 696281 339300 22642 19371 0 0 0 0 0 0 0 0 0 0 0 2199 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2445 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 162240 14293 2858 0 151709 151592 0 0 0 284534 0 0 0 0 0 0 0 0 0 0 0 0 0 0 185353 0 0 938962 0 0 0 0 736100 0 0 1 1209 27960 0 0 0 0 0 0 0 0 303 115968 452839 2 0 0 0 0 0 0 0 0 0 0 0 0 0 160361 8835 86413 1292 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3592 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 6091 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 35667 0 0 156823 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 138 2667417 0 41 4008 952 16633 533480 0 0 0 0 0 0 262506 0 0 0 0 0 0 126 0 0 1558488 0 4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 8 0 0 6 0 0 0 10 3 4 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 20 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 12 1 1 83806 0 1 1 0 1 0 1 1 319686 2 8 0 0 0 0 0 0 0 0 0 244534 0 1 10 9 0 10 112 107 40 221 0 0 0 144
+		ctxt 90182396
+		btime 1595203295
+		processes 270853
+		procs_running 2
+		procs_blocked 0
+		softirq 25293348 2883 7658936 40779 539155 497187 2864 1908702 7229194 279723 7133925
+		EOF
+                cat <<- EOF > "${INSTALLED_ROOTFS_DIR}/proc/.version"
+		Linux version 5.4.0-fake-kernel (termux@fakehost) (gcc version 4.9.x 20150123 (prerelease) (GCC) ) #1 SMP PREEMPT Fri Jul 10 00:00:00 UTC 2020
+		EOF
+                rm -f "${INSTALLED_ROOTFS_DIR}/etc/resolv.conf"
+		cat <<- EOF > "${INSTALLED_ROOTFS_DIR}/etc/resolv.conf"
+		nameserver 1.1.1.1
+		nameserver 1.0.0.1
+		EOF
+                cat <<- EOF > "${INSTALLED_ROOTFS_DIR}/etc/hosts"
+		# IPv4.
+		127.0.0.1   localhost.localdomain localhost
+
+		# IPv6.
+		::1         localhost.localdomain localhost ipv6-localhost ipv6-loopback
+		fe00::0     ipv6-localnet
+		ff00::0     ipv6-mcastprefix
+		ff02::1     ipv6-allnodes
+		ff02::2     ipv6-allrouters
+		ff02::3     ipv6-allhosts
+		EOF
+                echo "aid_$(id -un):x:$(id -u):$(id -g):Android user:/:/usr/sbin/nologin" >> "${INSTALLED_ROOTFS_DIR}/etc/passwd"
+		echo "aid_$(id -un):*:18446:0:99999:7:::" >> "${INSTALLED_ROOTFS_DIR}/etc/shadow"
+		local g
+		for g in $(id -G); do
+			echo "aid_$(id -gn "$g"):x:${g}:root,aid_$(id -un)" >> "${INSTALLED_ROOTFS_DIR}/etc/group"
+			if [ -f "${INSTALLED_ROOTFS_DIR}/etc/gshadow" ]; then
+				echo "aid_$(id -gn "$g"):*::root,aid_$(id -un)" >> "${INSTALLED_ROOTFS_DIR}/etc/gshadow"
+			fi
+		done
+}
+        restart
 	cd "$cur"
 fi
 mkdir -p ubuntu-binds
