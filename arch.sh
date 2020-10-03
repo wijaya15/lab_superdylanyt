@@ -29,8 +29,10 @@ if [ "$first" != 1 ];then
 			fi
 			;;
 	esac
+               wget -c --quiet --show-progress "${archurl}" -O $tarball
+        
 }
-		wget -c --quiet --show-progress "${archurl}" -O $tarball
+        install
         fi
 	cur=`pwd`
 	mkdir -p "$folder"
@@ -38,6 +40,39 @@ if [ "$first" != 1 ];then
 	echo " [+] Decompressing Rootfs, please be patient."
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
         echo " [+] Adding the new configuration and rebooting the system."
+        run_proot_cmd() {
+	if [ -z "${distro_name-}" ]; then
+		echo
+		echo -e "${BRED}Error: called run_proot_cmd() but \${distro_name} is not set. Possible cause: using run_proot_cmd() outside of distro_setup()?${RST}"
+		echo
+		return 1
+	fi
+
+	proot \
+		--kernel-release=5.4.0-fake-kernel \
+		--link2symlink \
+		--kill-on-exit \
+		--rootfs="${INSTALLED_ROOTFS_DIR}/${distro_name}" \
+		--root-id \
+		--cwd=/root \
+		--bind=/dev \
+		--bind="/dev/urandom:/dev/random" \
+		--bind=/proc \
+		--bind="/proc/self/fd:/dev/fd" \
+		--bind="/proc/self/fd/0:/dev/stdin" \
+		--bind="/proc/self/fd/1:/dev/stdout" \
+		--bind="/proc/self/fd/2:/dev/stderr" \
+		--bind=/sys \
+		--bind="${INSTALLED_ROOTFS_DIR}/${distro_name}/proc/.stat:/proc/stat" \
+		--bind="${INSTALLED_ROOTFS_DIR}/${distro_name}/proc/.version:/proc/version" \
+		/usr/bin/env -i \
+			"HOME=/root" \
+			"LANG=C.UTF-8" \
+			"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" \
+			"TERM=$TERM" \
+			"TMPDIR=/tmp" \
+			"$@"
+}
         function restart {
         local profile_script
 		if [ -d "${INSTALLED_ROOTFS_DIR}/etc/profile.d" ]; then
@@ -108,6 +143,32 @@ if [ "$first" != 1 ];then
 				echo "aid_$(id -gn "$g"):*::root,aid_$(id -un)" >> "${INSTALLED_ROOTFS_DIR}/etc/gshadow"
 			fi
 		done
+                if [ "$(uname -m)" = "x86_64" ]; then
+		    sed -i 's/#Server = http/Server = http/' ./etc/pacman.d/mirrorlist
+	        fi
+
+	run_proot_cmd pacman-key --init
+	if [ "$(uname -m)" = "x86_64" ]; then
+		run_proot_cmd pacman-key --populate archlinux
+	else
+		run_proot_cmd pacman-key --populate archlinuxarm
+	fi
+
+	echo "en_US.UTF-8 UTF-8" > ./etc/locale.gen
+	run_proot_cmd locale-gen
+	sed -i 's/LANG=C.UTF-8/LANG=en_US.UTF-8/' ./etc/profile.d/termux-proot.sh
+
+	case "$(uname -m)" in
+		aarch64)
+			run_proot_cmd pacman -Rnsc --noconfirm dbus linux-aarch64 systemd
+			;;
+		armv7l|armv8l)
+			run_proot_cmd pacman -Rnsc --noconfirm dbus linux-armv7 systemd
+			;;
+		x86_64)
+			run_proot_cmd pacman -Rnsc --noconfirm dbus systemd
+			;;
+	esac
 }
         restart
 	cd "$cur"
