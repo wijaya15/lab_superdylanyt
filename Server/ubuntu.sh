@@ -33,6 +33,7 @@ if [ "$first" != 1 ];then
 	cd "$folder"
 	echo " [+] Decompressing Rootfs, please be patient."
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
+        echo " [+] Adding the new configuration and rebooting the system."
         function restart {
         local profile_script
 		if [ -d "${INSTALLED_ROOTFS_DIR}/etc/profile.d" ]; then
