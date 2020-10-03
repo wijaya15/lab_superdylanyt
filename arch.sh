@@ -143,7 +143,10 @@ if [ "$first" != 1 ];then
 				echo "aid_$(id -gn "$g"):*::root,aid_$(id -un)" >> "${INSTALLED_ROOTFS_DIR}/etc/gshadow"
 			fi
 		done
-                if [ "$(uname -m)" = "x86_64" ]; then
+                
+}
+        restart
+        if [ "$(uname -m)" = "x86_64" ]; then
 		    sed -i 's/#Server = http/Server = http/' ./etc/pacman.d/mirrorlist
 	        fi
 
@@ -169,8 +172,6 @@ if [ "$first" != 1 ];then
 			run_proot_cmd pacman -Rnsc --noconfirm dbus systemd
 			;;
 	esac
-}
-        restart
 	cd "$cur"
 fi
 mkdir -p arch-binds
