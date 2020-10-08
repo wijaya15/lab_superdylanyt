@@ -41,7 +41,8 @@ echo -e "\e[5;94m   15- Instalar VPN en Termux"
 echo -e "\e[5;95m   16- Crear Servidor WEB en TermuxUbuntu"
 echo -e "\e[5;93m   17- Instalar SSHPLUS MANAGER FREE"
 echo -e "\e[5;92m   18- Instalar IPGeoLocation en Termux"
-echo -e "\e[5;97m   19- Salir"
+echo -e "\e[5;97m   19- Instalar wiki-termux"
+echo -e "\e[5;96m   20- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -592,6 +593,32 @@ exit
 fi
 ;;
 "19")
+clear
+echo -e "\e[5;36m [+] Instalando wiki-termux "
+cd $HOME
+pkg update -y && pkg upgrade -y
+pkg install wget -y
+pkg install git -y
+pkg install python -y
+git clone https://github.com/DeepSociety/wiki-termux.git
+cd $HOME/wiki-termux
+chmod +x *;ls
+./wiki
+clear
+cd $HOME
+clear
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"20")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
