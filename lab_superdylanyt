@@ -621,30 +621,42 @@ fi
 ;;
 "20")
 clear
-echo " Arquitectura de la máquina: "
+echo -e "\e[5;36m Arquitectura de la máquina: "
+setterm -foreground white
 uname -m
-echo " Versión del kernel usado: "
+echo -e "\e[5;36m Versión del kernel usado: "
+setterm -foreground white
 uname -r
-echo " Información del CPU: "
+echo -e "\e[5;36m Información del CPU: "
+setterm -foreground white
 cat /proc/cpuinfo
-echo " Interrupciones: "
+echo -e "\e[5;36m Interrupciones: "
+setterm -foreground white
 cat /proc/interrupts
-echo " Uso de memoria: "
+echo -e "\e[5;36m Uso de memoria: "
+setterm -foreground white
 cat /proc/meminfo
-echo " Ficheros swap: "
+echo -e "\e[5;36m Ficheros swap: "
+setterm -foreground white
 cat /proc/swaps
-echo " Adaptadores de red y estadísticas: "
+echo -e "\e[5;36m Adaptadores de red y estadísticas: "
+setterm -foreground white
 cat /proc/net/dev
-echo " Sistema de ficheros montado: "
+echo -e "\e[5;36m Sistema de ficheros montado: "
+setterm -foreground white
 cat /proc/mounts
-echo " Dispositivos PCI: "
+echo -e "\e[5;36m Dispositivos PCI: "
+setterm -foreground white
 lspci -tv
-echo " Dispositivos USB: "
+echo -e "\e[5;36m Dispositivos USB: "
+setterm -foreground white
 lsusb -tv
-echo " Fecha del sistema "
+echo -e "\e[5;36m Fecha del sistema "
+setterm -foreground white
 date
-echo " Pulsa ENTER para salir de aqui "
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
 read ENTER
+setterm -foreground white
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
