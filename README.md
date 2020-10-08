@@ -6,12 +6,12 @@
 [![security_policy](https://img.shields.io/badge/security-policy-cyan.svg)](https://github.com/dylan14567/lab_tool/blob/master/SECURITY.md)
 [![Bash](https://img.shields.io/badge/language-Bash-blue.svg)](https://www.gnu.org/software/bash/)
 
-Lab_superdylanyt es un sistema creado por SUPERDYLANYT, que funciona en sistemas operativos GNU/Linux, el sistema lab_superdylanyt te ayuda instalar
+Lab_superdylanyt es un sistema creado por SUPERDYLANYT, que funciona en sistemas operativos GNU/Linux, el sistema lab_tool te ayuda instalar
 programas en linux.
 
-Al ejecutar el script ./lab_superdylanyt, tienes que escribir start para iniciar el sistema de esta manera ./lab_superdylanyt start y para actualizar el sistema escribe este comando ./lab_superdylanyt update.
+Al ejecutar el script ./lab_tool, tienes que escribir start para iniciar el sistema de esta manera ./lab_tool start y para actualizar el sistema escribe este comando ./lab_tool update.
 
-Para instalar lab_superdylanyt en linux ejecuta estos comandos en tu Terminal Linux.
+Para instalar lab_tool en linux ejecuta estos comandos en tu Terminal Linux.
 
 ```shell
 
