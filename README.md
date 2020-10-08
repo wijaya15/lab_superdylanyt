@@ -5,6 +5,7 @@
 [![bug_report](https://img.shields.io/badge/bug-report-red.svg)](https://github.com/dylan14567/lab_superdylanyt/blob/master/.github/ISSUE_TEMPLATE/bug_report.md)
 [![security_policy](https://img.shields.io/badge/security-policy-cyan.svg)](https://github.com/dylan14567/lab_superdylanyt/blob/master/SECURITY.md)
 [![Bash](https://img.shields.io/badge/language-Bash-blue.svg)](https://www.gnu.org/software/bash/)
+[![alt text](https://github.com/dylan14567/lab_superdylanyt/raw/master/20201008_114639.jpg)
 
 Lab_superdylanyt es un sistema creado por SUPERDYLANYT, que funciona en sistemas operativos GNU/Linux, el sistema lab_superdylanyt te ayuda instalar
 programas en linux.
