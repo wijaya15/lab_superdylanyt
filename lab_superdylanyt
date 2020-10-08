@@ -40,7 +40,7 @@ echo -e "\e[5;96m   14- Instalar Xfce4 en TermuxUbuntu"
 echo -e "\e[5;94m   15- Instalar VPN en Termux"
 echo -e "\e[5;95m   16- Crear Servidor WEB en TermuxUbuntu"
 echo -e "\e[5;93m   17- Instalar SSHPLUS MANAGER FREE"
-echo -e "\e[5;92m   18- Instalar IPGeoLocation en Termux"
+echo -e "\e[5;92m   18- Instalar buildAPKs en Termux"
 echo -e "\e[5;97m   19- Instalar wiki-termux"
 echo -e "\e[5;96m   20- Salir"
 echo -e -n "\e[5;92m \n >>>  "
@@ -569,15 +569,14 @@ fi
 ;;
 "18")
 clear
-echo -e "\e[5;36m [+] Instalando IPGeoLocation en Termux "
+echo -e "\e[5;36m [+] Instalando buildAPKs en Termux "
 cd $HOME
 pkg update -y && pkg upgrade -y
+pkg install wget -y
 pkg install git -y
-pkg install python -y
-git clone https://github.com/maldevel/IPGeoLocation.git
-cd $HOME/IPGeoLocation
-chmod +x *;ls
-pip3 install -r requirements.txt
+pkg install curl -y
+curl -O https://raw.githubusercontent.com/BuildAPKs/buildAPKs/master/setup.buildAPKs.bash
+bash setup.buildAPKs.bash
 clear
 cd $HOME
 clear
