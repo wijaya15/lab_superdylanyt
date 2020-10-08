@@ -651,13 +651,13 @@ lspci -tv
 echo -e "\e[5;36m Dispositivos USB: "
 setterm -foreground white
 lsusb -tv
-echo -e "\e[5;36m Fecha del sistema "
+echo -e "\e[5;36m Fecha del sistema: "
 setterm -foreground white
 date
-echo -e "\e[5;36m Dirección IP Pública "
+echo -e "\e[5;36m Dirección IP Pública: "
 setterm -foreground white
 curl https://ifconfig.me -w "\n"
-echo -e "\e[5;36m Dirección IP Privada "
+echo -e "\e[5;36m Dirección IP Privada: "
 setterm -foreground white
 ip a
 echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
