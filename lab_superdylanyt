@@ -603,6 +603,7 @@ pkg install python -y
 git clone https://github.com/DeepSociety/wiki-termux.git
 cd $HOME/wiki-termux
 chmod +x *;ls
+clear
 ./wiki
 clear
 cd $HOME
