@@ -34,6 +34,16 @@ chmod +x lab_superdylanyt
 
 ```
 
+# Disclaimer
+
+El autor de este repositorio, ni github, no se responsabilizan, del mal uso de las herramientas usadas en este sistema, La única intención, de estas herramientas es mejorar la seguridad informatica.
+
+Los desarrolladores de lab_superdylanyt no brindan ninguna ayuda con la piratería y la actividad relacionada, incluida la configuración y el uso de las utilidades relacionadas. No importa si tiene permiso para hacerlo o no, si lo está haciendo por educación, bromas, etc.
+
+Si está interesado en piratear, se espera que sea un usuario experimentado. No estamos ayudando a los niños del guión.
+
+Se desaconseja encarecidamente el phishing, el carding y otras actividades fuertemente relacionadas con el fraude y que no puedan tratarse como nada más que un delito. Tal actividad no es piratería o pentesting ético y no hay lugar para ello en nuestra comunidad.
+
 # Instalar Ubuntu en Termux
 
 Para instalar Ubuntu en Termux, ingresa al menu del sistema lab_superdylanyt, y escribe 7, luego pulsa en ENTER, y se comenzara a instalar Ubuntu.
