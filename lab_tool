@@ -6,9 +6,9 @@ case "$1" in
             ;;
 
           update)
-             curl --progress-bar -L --fail --retry 4 -O  https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/update-lab_superdylanyt
-             chmod +x update-lab_superdylanyt
-             ./update-lab_superdylanyt
+             curl --progress-bar -L --fail --retry 4 -O  https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/update-lab_tool
+             chmod +x update-lab_tool
+             ./update-lab_tool
              clear
              exit
            ;;
