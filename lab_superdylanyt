@@ -660,6 +660,9 @@ curl https://ifconfig.me -w "\n"
 echo -e "\e[5;36m Dirección IP Privada: "
 setterm -foreground white
 ip a
+echo -e "\e[5;36m Nombre de Usuario: "
+setterm -foreground white
+whoami
 echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
 read ENTER
 setterm -foreground white
