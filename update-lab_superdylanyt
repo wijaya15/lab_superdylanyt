@@ -1,0 +1,11 @@
+#!/bin/bash
+clear
+rm -rf lab_superdylanyt
+echo " [+] Actualizando lab_tool "
+curl --progress-bar -L --fail --retry 4 -O  https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/lab_superdylanyt
+chmod +x lab_superdylanyt
+clear
+echo " [+] Actualización Completada "
+clear
+rm -rf update-lab_superdylanyt
+             
