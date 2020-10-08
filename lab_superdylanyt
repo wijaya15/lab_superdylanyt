@@ -42,7 +42,8 @@ echo -e "\e[5;95m   16- Crear Servidor WEB en TermuxUbuntu"
 echo -e "\e[5;93m   17- Instalar SSHPLUS MANAGER FREE"
 echo -e "\e[5;92m   18- Instalar buildAPKs en Termux"
 echo -e "\e[5;97m   19- Instalar wiki-termux"
-echo -e "\e[5;96m   20- Salir"
+echo -e "\e[5;96m   20- Información del sistema - Termux"
+echo -e "\e[5;94m   21- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -619,6 +620,42 @@ exit
 fi
 ;;
 "20")
+clear
+echo " Arquitectura de la máquina: "
+uname -m
+echo " Versión del kernel usado: "
+uname -r
+echo " Información del CPU: "
+cat /proc/cpuinfo
+echo " Interrupciones: "
+cat /proc/interrupts
+echo " Uso de memoria: "
+cat /proc/meminfo
+echo " Ficheros swap: "
+cat /proc/swaps
+echo " Adaptadores de red y estadísticas: "
+cat /proc/net/dev
+echo " Sistema de ficheros montado: "
+cat /proc/mounts
+echo " Dispositivos PCI: "
+lspci -tv
+echo " Dispositivos USB: "
+lsusb -tv
+echo " Fecha del sistema "
+date
+echo " Pulsa ENTER para salir de aqui "
+read ENTER
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"21")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
