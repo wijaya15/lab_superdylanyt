@@ -33,3 +33,11 @@ chmod +x lab_superdylanyt
 ./lab_superdylanyt start
 
 ```
+
+# Instalar Ubuntu en Termux
+
+Para instalar Ubuntu en Termux, ingresa al menu del sistema lab_superdylanyt, y escribe 7, luego pulsa en ENTER, se comenzara a instalar Ubuntu.
+
+Una vez instalado Ubuntu, debes iniciar el sistema Ubuntu con el comando startubuntu.
+
+/FIN/
