@@ -7,11 +7,12 @@
 [![Bash](https://img.shields.io/badge/language-Bash-blue.svg)](https://www.gnu.org/software/bash/)
 ![alt text](https://github.com/dylan14567/lab_superdylanyt/raw/master/20201008_114639.jpg)
 
-***Language***
-- [🇲🇽 Español](./README.es.md)
-- 🇺🇸 English
+Lab_superdylanyt es un sistema creado por SUPERDYLANYT, que funciona en sistemas operativos GNU/Linux, el sistema lab_superdylanyt te ayuda instalar
+programas en linux.
 
-Lab_superdylanyt is a system created by SUPERDYLANYT, which works on GNU / Linux operating systems, the lab_superdylanyt system helps you to install programs on linux. When executing the script ./lab_superdylanyt, you have to type start to start the system in this way ./lab_superdylanyt start and to update the system type this command ./lab_superdylanyt update. To install lab_superdylanyt on Linux run these commands in your Linux Terminal.
+Al ejecutar el script ./lab_superdylanyt, tienes que escribir start para iniciar el sistema de esta manera ./lab_superdylanyt start y para actualizar el sistema escribe este comando ./lab_superdylanyt update.
+
+Para instalar lab_superdylanyt en linux ejecuta estos comandos en tu Terminal Linux.
 
 ```shell
 
@@ -22,7 +23,7 @@ chmod +x lab_superdylanyt
 
 ```
 
-To install lab_superdylanyt on Termux Alpine, run these commands.
+Para instalar lab_superdylanyt en TermuxAlpine, ejecuta estos comandos.
 
 ```shell
 
@@ -34,8 +35,11 @@ chmod +x lab_superdylanyt
 
 ```
 
-# Install Ubuntu in Termux
+# Instalar Ubuntu en Termux
 
-To install Ubuntu in Termux, enter the system menu lab_superdylanyt, and type 7, then press ENTER, and Ubuntu will begin to install. Once Ubuntu is installed, you must start the Ubuntu system with the startubuntu command.
+Para instalar Ubuntu en Termux, ingresa al menu del sistema lab_superdylanyt, y escribe 7, luego pulsa en ENTER, y se comenzara a instalar Ubuntu.
 
-/END/
+Una vez instalado Ubuntu, debes iniciar el sistema Ubuntu con el comando startubuntu.
+
+/FIN/
+
