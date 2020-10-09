@@ -7,6 +7,10 @@
 [![Bash](https://img.shields.io/badge/language-Bash-blue.svg)](https://www.gnu.org/software/bash/)
 ![alt text](https://github.com/dylan14567/lab_superdylanyt/raw/master/20201008_114639.jpg)
 
+***Language***
+- [🇲🇽 Español](./README.es.md)
+- 🇺🇸 English
+
 Lab_superdylanyt es un sistema creado por SUPERDYLANYT, que funciona en sistemas operativos GNU/Linux, el sistema lab_superdylanyt te ayuda instalar
 programas en linux.
 
