@@ -44,7 +44,8 @@ echo -e "\e[5;92m   18- Instalar buildAPKs en Termux"
 echo -e "\e[5;97m   19- Instalar wiki-termux"
 echo -e "\e[5;96m   20- Información del sistema - Termux"
 echo -e "\e[5;94m   21- Crear copia de seguridad en Termux"
-echo -e "\e[5;95m   22- Salir"
+echo -e "\e[5;95m   22- Restaurar el sistema Termux"
+echo -e "\e[5;93m   23- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -701,6 +702,41 @@ exit
 fi
 ;;
 "22")
+clear
+echo -e "\e[5;36m [+] Restaurando el sistema Termux "
+cd $HOME
+mv lab_superdylanyt /data/data/com.termux/files
+cd /data/data/com.termux/files
+pkg update -y && pkg upgrade -y
+pkg install tar -y
+pkg install busybox -y
+clear
+termux-setup-storage
+clear
+rm -rf home
+tar -zxvf /sdcard/termux-backup.tar.gz home
+cp ./usr/bin/busybox ./tar
+rm -rf usr
+unset LD_PRELOAD
+./tar -zxvf /sdcard/termux-backup.tar.gz usr
+clear
+mv lab_superdylanyt $HOME
+cd $HOME
+clear
+echo -e "\e[5;36m [+] Restauración Completada "
+clear
+echo -e "\e[5;36m [+] Finalizado "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"23")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
