@@ -712,6 +712,8 @@ pkg install tar -y
 pkg install busybox -y
 clear
 termux-setup-storage
+echo " Pulsa ENTER para continuar, Pulsa CTRL C para salir de aquí "
+read ENTER
 clear
 rm -rf home
 tar -zxvf /sdcard/termux-backup.tar.gz home
