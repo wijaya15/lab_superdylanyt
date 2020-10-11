@@ -43,7 +43,8 @@ echo -e "\e[5;93m   17- Instalar SSHPLUS MANAGER FREE"
 echo -e "\e[5;92m   18- Instalar buildAPKs en Termux"
 echo -e "\e[5;97m   19- Instalar wiki-termux"
 echo -e "\e[5;96m   20- Información del sistema - Termux"
-echo -e "\e[5;94m   21- Salir"
+echo -e "\e[5;94m   21- Crear copia de seguridad en Termux"
+echo -e "\e[5;95m   22- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -677,6 +678,29 @@ exit
 fi
 ;;
 "21")
+clear
+echo -e "\e[5;36m [+] Creando copia de seguridad en Termux "
+cd /data/data/com.termux/files
+pkg update -y && pkg upgrade -y
+pkg install tar -y
+pkg install busybox -y
+clear
+termux-setup-storage
+clear
+tar -zcvf /sdcard/termux-backup.tar.gz home usr
+clear
+echo -e "\e[5;36m [+] Finalizado "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"22")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
