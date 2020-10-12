@@ -45,7 +45,8 @@ echo -e "\e[5;97m   19- Instalar wiki-termux"
 echo -e "\e[5;96m   20- Información del sistema - Termux"
 echo -e "\e[5;94m   21- Crear copia de seguridad en Termux"
 echo -e "\e[5;95m   22- Restaurar el sistema Termux"
-echo -e "\e[5;93m   23- Salir"
+echo -e "\e[5;93m   23- Instalar Termux Style"
+echo -e "\e[5;92m   24- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -739,6 +740,31 @@ exit
 fi
 ;;
 "23")
+clear
+echo -e "\e[5;36m [+] Instalando Termux Style "
+cd $HOME
+pkg update -y && pkg upgrade -y
+pkg install wget -y
+pkg install git -y
+git clone https://github.com/adi1090x/termux-style
+cd $HOME/termux-style
+chmod +x *;ls
+./install
+clear
+cd $HOME
+clear
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"24")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
