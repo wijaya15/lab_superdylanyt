@@ -10,7 +10,7 @@ fi
 tarball="ubuntu-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
-		echo " [+] Download Rootfs, this may take a while base on your internet speed."
+		printf "[*] ${1}... Download Rootfs, this may take a while base on your internet speed. \n"
                 case `dpkg --print-architecture` in
 		aarch64)
 			archurl="arm64" ;;
@@ -30,11 +30,11 @@ if [ "$first" != 1 ];then
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
-	echo " [+] Decompressing Rootfs, please be patient."
+	printf "[*] ${1}... Decompressing Rootfs, please be patient. \n"
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
-        echo " [+] fixing nameserver, otherwise it can't connect to the internet"
+        printf "[*] ${1}... fixing nameserver, otherwise it can't connect to the internet \n"
 	echo "nameserver 1.1.1.1" > etc/resolv.conf
-        echo " [+] fixing hosts, otherwise you can't use sudo"
+        printf "[*] ${1}... fixing hosts, otherwise you can't use sudo \n"
         echo "127.0.0.1 localhost" > etc/hosts
 	cd "$cur"
 fi
