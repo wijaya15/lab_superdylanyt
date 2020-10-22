@@ -10,7 +10,7 @@ fi
 tarball="ubuntu-rootfs.tar.gz"
 if [ "$first" != 1 ];then
 	if [ ! -f $tarball ]; then
-		printf "[*] ${1}... Download Rootfs, this may take a while base on your internet speed. \n"
+		echo " [+] Download Rootfs, this may take a while base on your internet speed. "
                 case `dpkg --print-architecture` in
 		aarch64)
 			archurl="arm64" ;;
@@ -30,11 +30,11 @@ if [ "$first" != 1 ];then
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
-	printf "[*] ${1}... Decompressing Rootfs, please be patient. \n"
+	echo " [+] Decompressing Rootfs, please be patient. "
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
-        printf "[*] ${1}... fixing nameserver, otherwise it can't connect to the internet \n"
+        echo " [+] fixing nameserver, otherwise it can't connect to the internet "
 	echo "nameserver 1.1.1.1" > etc/resolv.conf
-        printf "[*] ${1}... fixing hosts, otherwise you can't use sudo \n"
+        echo " [+] fixing hosts, otherwise you can't use sudo "
         echo "127.0.0.1 localhost" > etc/hosts
 	cd "$cur"
 fi
@@ -77,11 +77,11 @@ else
 fi
 EOM
 
-printf "[*] ${1}... fixing shebang of $bin \n"
+echo " [+] fixing shebang of $bin "
 termux-fix-shebang $bin
-printf "[*] ${1}... making $bin executable \n"
+echo " [+] making $bin executable "
 chmod +x $bin
-printf "[*] ${1}... removing image for some space \n"
+echo " [+] removing image for some space "
 rm $tarball
-printf "[*] ${1}... You can now launch Ubuntu with the ./${bin} script \n"
+echo " [+] You can now launch Ubuntu with the ./${bin} script "
 cd $HOME
