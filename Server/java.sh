@@ -23,8 +23,8 @@ echo " [+] Downloading the .deb files "
    
    echo " [+] Installing Java... "
    apt update -y && apt upgrade -y
-   apt install -y ./$jdk
    apt install -y ./$jre
+   apt install -y ./$jdk
 
    echo " [+] Removing the .deb files to have more space. "
    cd $HOME
