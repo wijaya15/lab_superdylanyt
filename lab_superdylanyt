@@ -795,7 +795,7 @@ fi
 "25")
 clear
 echo -e "\e[5;36m [+] Instalando Java en TermuxUbuntu "
-home="~/"
+home="--"
 cd $home
 apt update -y && apt upgrade -y
 apt install sudo -y
