@@ -47,7 +47,7 @@ echo -e "\e[5;94m   21- Crear copia de seguridad en Termux"
 echo -e "\e[5;95m   22- Restaurar el sistema Termux"
 echo -e "\e[5;93m   23- Instalar Termux Style"
 echo -e "\e[5;92m   24- Instalar Termux Recursos"
-echo -e "\e[5;97m   25- Instalar Java en Termux"
+echo -e "\e[5;97m   25- Instalar Termux Apktool"
 echo -e "\e[5;96m   26- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
@@ -793,15 +793,13 @@ fi
 ;;
 "25")
 clear
-echo -e "\e[5;36m [+] Instalando Java en Termux "
+echo -e "\e[5;36m [+] Instalando Termux Apktool "
 cd $HOME
 pkg update -y && pkg upgrade -y
 pkg install wget -y
 clear
-wget -c --quiet --show-progress https://raw.githubusercontent.com/MasterDevX/Termux-Java/master/installjava
-chmod +x installjava
-clear
-bash installjava
+wget -c --quiet --show-progress https://github.com/1Tech-X/Termux-Apktool/blob/master/apktool.deb
+dpkg -i apktool.deb
 cd $HOME
 clear
 echo -e "\e[5;36m [+] Instalación Completada "
