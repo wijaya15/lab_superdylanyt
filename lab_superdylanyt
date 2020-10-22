@@ -662,7 +662,7 @@ setterm -foreground white
 date
 echo -e "\e[5;36m Dirección IP Pública: "
 setterm -foreground white
-curl https://ifconfig.me -w "\n"
+curl https://wgetip.com -w "\n"
 echo -e "\e[5;36m Dirección IP Privada: "
 setterm -foreground white
 ip a
