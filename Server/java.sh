@@ -24,12 +24,12 @@ echo " [+] Downloading the .deb files "
    echo " [+] Installing Java... "
    apt update -y && apt upgrade -y
    apt install -y ./$jdk
-   apt install -y ./$jre
+   apt install -y ./$jre1
 
    echo " [+] Removing the .deb files to have more space. "
    cd $HOME
    rm -rf $jdk
-   rm -rf $jre
+   rm -rf $jre1
 
    echo " [+] Installation completed "
    rm -rf java.sh
