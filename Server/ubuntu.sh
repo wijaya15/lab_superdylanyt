@@ -77,11 +77,11 @@ else
 fi
 EOM
 
-echo " [+] fixing shebang of $bin"
+printf "[*] ${1}... fixing shebang of $bin \n"
 termux-fix-shebang $bin
-echo " [+] making $bin executable"
+printf "[*] ${1}... making $bin executable \n"
 chmod +x $bin
-echo " [+] removing image for some space"
+printf "[*] ${1}... removing image for some space \n"
 rm $tarball
-echo " [+] You can now launch Ubuntu with the ./${bin} script"
+printf "[*] ${1}... You can now launch Ubuntu with the ./${bin} script \n"
 cd $HOME
