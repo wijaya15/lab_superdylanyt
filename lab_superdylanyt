@@ -820,11 +820,13 @@ clear
 echo -e "\e[5;36m [+] Instalando Termux Apktool "
 cd $HOME
 apt update -y && apt upgrade -y
-apt install wget -y
+apt install git -y
 clear
-wget -c --quiet --show-progress https://github.com/1Tech-X/Termux-Apktool/blob/master/apktool.deb
+git clone https://github.com/1Tech-X/Termux-Apktool
+clear
+cd $HOME/Termux-Apktool
 apt install -y ./apktool.deb
-rm -rf apktool.deb
+clear
 cd $HOME
 clear
 echo -e "\e[5;36m [+] Instalación Completada "
