@@ -828,6 +828,9 @@ cd $HOME/Termux-Apktool
 apt install -y ./apktool.deb
 clear
 cd $HOME
+rm -rf $HOME/Termux-Apktool
+clear
+cd $HOME
 clear
 echo -e "\e[5;36m [+] Instalación Completada "
 clear
