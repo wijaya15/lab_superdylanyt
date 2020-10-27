@@ -41,6 +41,7 @@ if [ "$first" != 1 ];then
 		else
 			profile_script="${INSTALLED_ROOTFS_DIR}/etc/profile"
 		fi
+		echo " [+] Writing '$profile_script' "
 		local LIBGCC_S_PATH
 		LIBGCC_S_PATH="/$(cd ${INSTALLED_ROOTFS_DIR}; find usr/lib/ -name libgcc_s.so.1)"
         cat <<- EOF >> "$profile_script"
@@ -65,6 +66,7 @@ if [ "$first" != 1 ];then
 		fi
 		unset LIBGCC_S_PATH
 
+                echo " [+] Creating a source for fake /proc/stat file for SELinux restrictions workaround "
                 chmod 700 "${INSTALLED_ROOTFS_DIR}/proc" >/dev/null 2>&1
 		cat <<- EOF > "${INSTALLED_ROOTFS_DIR}/proc/.stat"
 		cpu  1050008 127632 898432 43828767 37203 63 99244 0 0 0
@@ -82,14 +84,20 @@ if [ "$first" != 1 ];then
 		procs_blocked 0
 		softirq 25293348 2883 7658936 40779 539155 497187 2864 1908702 7229194 279723 7133925
 		EOF
+		
+		echo " [+] Creating a source for fake /proc/version file for SELinux restrictions workaround "
                 cat <<- EOF > "${INSTALLED_ROOTFS_DIR}/proc/.version"
 		Linux version 5.4.0-fake-kernel (termux@fakehost) (gcc version 4.9.x 20150123 (prerelease) (GCC) ) #1 SMP PREEMPT Fri Jul 10 00:00:00 UTC 2020
 		EOF
+		
+		echo " [+] Writing resolv.conf file (NS 1.1.1.1/1.0.0.1) "
                 rm -f "${INSTALLED_ROOTFS_DIR}/etc/resolv.conf"
 		cat <<- EOF > "${INSTALLED_ROOTFS_DIR}/etc/resolv.conf"
 		nameserver 1.1.1.1
 		nameserver 1.0.0.1
 		EOF
+		
+		echo " [+] Writing hosts file "
                 cat <<- EOF > "${INSTALLED_ROOTFS_DIR}/etc/hosts"
 		# IPv4.
 		127.0.0.1   localhost.localdomain localhost
@@ -101,6 +109,8 @@ if [ "$first" != 1 ];then
 		ff02::2     ipv6-allrouters
 		ff02::3     ipv6-allhosts
 		EOF
+		
+		echo " [+] Registering Android-specific UIDs and GIDs "
                 echo "aid_$(id -un):x:$(id -u):$(id -g):Android user:/:/usr/sbin/nologin" >> "${INSTALLED_ROOTFS_DIR}/etc/passwd"
 		echo "aid_$(id -un):*:18446:0:99999:7:::" >> "${INSTALLED_ROOTFS_DIR}/etc/shadow"
 		local g
