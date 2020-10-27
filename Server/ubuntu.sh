@@ -42,7 +42,7 @@ if [ "$first" != 1 ];then
 			profile_script="${INSTALLED_ROOTFS_DIR}/etc/profile"
 		fi
 		local LIBGCC_S_PATH
-		LIBGCC_S_PATH="/$(cd ${INSTALLED_ROOTFS_DIR}/${distro_name}; find usr/lib/ -name libgcc_s.so.1)"
+		LIBGCC_S_PATH="/$(cd ${INSTALLED_ROOTFS_DIR}; find usr/lib/ -name libgcc_s.so.1)"
         cat <<- EOF >> "$profile_script"
 		export ANDROID_ART_ROOT=${ANDROID_ART_ROOT-}
 		export ANDROID_DATA=${ANDROID_DATA-}
