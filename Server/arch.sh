@@ -13,11 +13,11 @@ get_download_url() {
 			echo "https://eu.mirror.archlinuxarm.org/os/ArchLinuxARM-armv7-latest.tar.gz"
 			;;
 		x86_64)
-			echo "http://mirrors.evowise.com/archlinux/iso/2020.09.01/archlinux-bootstrap-2020.09.01-x86_64.tar.gz"
+			echo "https://mirrors.evowise.com/archlinux/iso/2020.10.01/archlinux-bootstrap-2020.10.01-x86_64.tar.gz"
 			local file_name
 			file_name=$(curl --fail --silent "https://mirror.rackspace.com/archlinux/iso/latest/md5sums.txt" | grep bootstrap | awk '{ print $2 }')
 			if [ -n "$file_name" ]; then
-				echo "http://mirror.rackspace.com/archlinux/iso/latest/${file_name}"
+				echo "https://mirror.rackspace.com/archlinux/iso/latest/${file_name}"
 			fi
 			;;
 	esac
