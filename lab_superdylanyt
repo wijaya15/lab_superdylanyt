@@ -50,7 +50,8 @@ echo -e "\e[5;92m   24- Instalar Termux Recursos"
 echo -e "\e[5;97m   25- Instalar Java en TermuxUbuntu"
 echo -e "\e[5;96m   26- Instalar Termux Apktool"
 echo -e "\e[5;94m   27- Instalar Jupyter Notebook en TermuxUbuntu"
-echo -e "\e[5;95m   28- Salir"
+echo -e "\e[5;95m   28- Iniciar Jupyter Notebook en LAN"
+echo -e "\e[5;93m   29- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -852,6 +853,7 @@ cd $home
 apt update -y && apt upgrade -y
 apt install sudo -y
 sudo apt update -y && sudo apt upgrade -y
+sudo apt install net-tools -y
 sudo apt install jupyter-notebook -y
 cd $home
 clear
@@ -867,6 +869,30 @@ exit
 fi
 ;;
 "28")
+clear
+echo -e "\e[5;36m [+] Iniciar Jupyter Notebook en LAN "
+home="--"
+cd $home
+clear
+ifconfig
+echo " Copia tu IP y pegala aquí "
+read ip
+clear
+jupyter notebook --ip $ip --port 8888
+cd $home
+clear
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"29")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
