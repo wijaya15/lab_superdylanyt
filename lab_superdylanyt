@@ -881,7 +881,7 @@ clear
 jupyter notebook --ip $ip --port 8888
 cd $home
 clear
-echo -e "\e[5;36m [+] Instalación Completada "
+echo -e "\e[5;36m [+] Finalizado "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
