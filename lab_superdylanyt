@@ -51,7 +51,8 @@ echo -e "\e[5;97m   25- Instalar Java en TermuxUbuntu"
 echo -e "\e[5;96m   26- Instalar Termux Apktool"
 echo -e "\e[5;94m   27- Instalar Jupyter Notebook en TermuxUbuntu"
 echo -e "\e[5;95m   28- Iniciar Jupyter Notebook en LAN"
-echo -e "\e[5;93m   29- Salir"
+echo -e "\e[5;93m   29- Instalar Debian en Termux"
+echo -e "\e[5;92m   30- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -893,6 +894,42 @@ exit
 fi
 ;;
 "29")
+clear
+echo -e "\e[5;36m [+] Instalando Debian en Termux "
+cd $HOME
+mkdir $PREFIX/share/Debian
+cd $PREFIX/share/Debian
+clear
+pkg install wget openssl-tool proot -y && hash -r && wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/Installer/Debian/debian.sh && bash debian.sh
+clear
+rm -rf debian.sh
+cd $PREFIX/bin
+debian=startdebian
+cat > $debian <<- EOM
+clear
+cd $PREFIX/share/Debian
+./start-debian.sh
+EOM
+
+termux-fix-shebang $debian
+chmod +x $debian
+cd $HOME
+clear
+echo " Ejecuta ${debian} para iniciar Debian "
+echo " Pulsa ENTER para salir de aquí "
+read ENTER
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"30")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
