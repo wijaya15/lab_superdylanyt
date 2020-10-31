@@ -876,7 +876,7 @@ home="--"
 cd $home
 clear
 ifconfig
-echo " Copia tu IP y pegala aquí "
+echo " Copia tu IP y pegala aquí: "
 read ip
 clear
 jupyter notebook --ip $ip --port 8888
