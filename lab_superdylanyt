@@ -49,7 +49,8 @@ echo -e "\e[5;93m   23- Instalar Termux Style"
 echo -e "\e[5;92m   24- Instalar Termux Recursos"
 echo -e "\e[5;97m   25- Instalar Java en TermuxUbuntu"
 echo -e "\e[5;96m   26- Instalar Termux Apktool"
-echo -e "\e[5;94m   27- Salir"
+echo -e "\e[5;94m   27- Instalar Jupyter Notebook en TermuxUbuntu"
+echo -e "\e[5;95m   28- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -844,6 +845,28 @@ exit
 fi
 ;;
 "27")
+clear
+echo -e "\e[5;36m [+] Instalando Jupyter Notebook en TermuxUbuntu "
+home="--"
+cd $home
+apt update -y && apt upgrade -y
+apt install sudo -y
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install jupyter-notebook -y
+cd $home
+clear
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"28")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
