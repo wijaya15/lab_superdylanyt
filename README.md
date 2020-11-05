@@ -58,8 +58,13 @@ sudo apt install -f
 
 ```
 
+# Contribuyendo
 
+¿Interesado en contribuir en el proyecto? Nos encantaría tu ayuda. Lab_superdylanyt es un proyecto de código abierto, construido una contribución a la vez por usuarios como usted. Consulte <a href="https://github.com/dylan14567/lab_superdylanyt/CONTRIBUTING.md">el archivo CONTRIBUTING</a> para obtener instrucciones sobre cómo contribuir.
 
+# Licencia
+
+La licencia de este proyecto es <a href="https://github.com/dylan14567/lab_superdylanyt/blob/master/LICENSE">MIT</a>
 
 
 
