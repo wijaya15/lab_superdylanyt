@@ -43,3 +43,17 @@ Una vez instalado Ubuntu, debes iniciar el sistema Ubuntu con el comando startub
 
 /FIN/
 
+# Solución de error con dpkg en Ubuntu
+
+Si haz tenido un problema al instalar un paquete apt, y te salido error de dpkg.
+La solución es esta:
+
+```shell
+cd /var/lib/dpkg/info
+rm -rf *;ls
+cd --
+sudo apt install -f
+
+```
+
+
