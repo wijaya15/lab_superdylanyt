@@ -41,7 +41,7 @@ Aquí hay algunas pautas generales para proponer cambios:
 En un nivel alto, el proceso para proponer cambios es:
 
 1. Clonar el proyecto
-2. Crea una nueva rama: ```shell git checkout -b my-branch-name ```
+2. Crea una nueva rama: ``` git checkout -b my-branch-name ```
 3. Realice su cambio, agregue pruebas y asegúrese de que las pruebas aún pasen.
 4. Envíe una solicitud de extracción.
 5. Espera a que tu solicitud de extracción sea revisada y fusionada.
