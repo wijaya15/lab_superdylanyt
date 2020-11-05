@@ -12,6 +12,8 @@ programas en linux.
 
 Al ejecutar el script ./lab_superdylanyt, tienes que escribir start para iniciar el sistema de esta manera ./lab_superdylanyt start y para actualizar el sistema escribe este comando ./lab_superdylanyt update.
 
+# Instalación
+
 Para instalar lab_superdylanyt en linux ejecuta estos comandos en tu Terminal Linux.
 
 ```shell
@@ -55,5 +57,10 @@ cd --
 sudo apt install -f
 
 ```
+
+
+
+
+
 
 
