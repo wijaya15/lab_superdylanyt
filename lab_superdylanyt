@@ -852,11 +852,19 @@ clear
 echo -e "\e[5;36m [+] Instalando Jupyter Notebook en TermuxUbuntu "
 home="--"
 cd $home
-apt update -y && apt upgrade -y
-apt install sudo -y
-sudo apt update -y && sudo apt upgrade -y
+echo -ne '#                     (10%)\r'
+apt update -yq --silent
+apt upgrade -yq --silent
+echo -ne '######                (47%)\r'
+apt install sudo -yq --silent
+echo -ne '############          (55%)\r'
+sudo apt update -yq --silent
+sudo apt upgrade -yq --silent
+echo -ne '################      (70%)\r'
 sudo apt install net-tools -y
 sudo apt install jupyter-notebook -y
+echo -ne '#######################   (100%)\r'
+echo -ne '\n'
 cd $home
 clear
 echo -e "\e[5;36m [+] Instalación Completada "
