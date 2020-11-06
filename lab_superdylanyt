@@ -52,7 +52,7 @@ echo -e "\e[5;96m   26- Instalar Termux Apktool"
 echo -e "\e[5;94m   27- Instalar Jupyter Notebook en TermuxUbuntu"
 echo -e "\e[5;95m   28- Iniciar Jupyter Notebook en LAN"
 echo -e "\e[5;93m   29- Instalar Debian en Termux"
-echo -e "\e[5;92m   30- Instalar MyServer"
+echo -e "\e[5;92m   30- Instalar MyServer en Ubuntu"
 echo -e "\e[5;97m   31- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
@@ -932,7 +932,7 @@ fi
 ;;
 "30")
 clear
-echo -e "\e[5;36m [+] Instalando MyServer "
+echo -e "\e[5;36m [+] Instalando MyServer en Ubuntu "
 home="--"
 cd $home
 apt update -y && apt upgrade -y
