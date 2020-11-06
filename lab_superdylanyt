@@ -3,7 +3,11 @@ clear
 case "$1" in
 	  start)
 	   echo " [+] Iniciando Sistema "
-           echo -ne '#####                     (33%)\r'
+           echo -ne '####                      (20%)\r'
+           sleep 1
+           echo -ne '#########                 (40%)\r'
+           sleep 1
+           echo -ne '##############            (70%)\r'
            sleep 1
            echo -ne '##################        (80%)\r'
            sleep 1
