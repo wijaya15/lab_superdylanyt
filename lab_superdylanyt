@@ -935,30 +935,10 @@ clear
 echo -e "\e[5;36m [+] Instalando MyServer "
 home="--"
 cd $home
-function install {
-
-  if [ "$HOME" = "$HOME" ] ; then
-           pkg update -y && pkg upgrade -y
-           pkg install git -y
-  else
-     apt update -y && apt upgrade -y
-     apt install git -y
-
-  fi
-
-   if [ "sudo" = "sudo" ] ; then
-              sudo apt update -y && sudo apt upgrade -y
-              sudo apt install git -y
-    else
-             apt update -y && apt upgrade -y
-             apt install git -y
-
-    fi
-
-
-}
-
-install
+apt update -y && apt upgrade -y
+apt install sudo -y
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install git -y
 git clone https://github.com/rajkumardusad/MyServer
 cd MyServer
 chmod +x *;ls
