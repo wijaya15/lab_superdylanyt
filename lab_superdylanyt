@@ -852,6 +852,7 @@ clear
 echo -e "\e[5;36m [+] Instalando Jupyter Notebook en TermuxUbuntu "
 home="--"
 cd $home
+setterm -foreground white
 echo -ne '#                     (10%)\r'
 apt update -yq --silent
 apt upgrade -yq --silent
