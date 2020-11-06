@@ -560,9 +560,10 @@ fi
 ;;
 "17")
 clear
-cd $HOME
 echo -e "\e[5;36m [+] Instalando configserver en Ubuntu "
 setterm -foreground white
+home="--"
+cd $home
 apt update -y && apt upgrade -y
 apt install sudo -y
 sudo apt update -y && sudo apt upgrade -y
@@ -577,6 +578,8 @@ sudo apt install lshw -y
 clear
 curl --progress-bar -L --fail --retry 4 -O https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/configserver
 chmod +x configserver
+clear
+cd $home
 clear
 echo -e "\e[5;36m [+] Instalación Completada "
 clear
