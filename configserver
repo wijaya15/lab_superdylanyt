@@ -1,5 +1,23 @@
 #!/bin/bash
 clear
+case "$1" in
+	  start)
+	   echo " [+] Iniciando Sistema "
+            ;;
+
+          update)
+             curl --progress-bar -L --fail --retry 4 -O  https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/update-lab_superdylanyt
+             chmod +x update-lab_superdylanyt
+             ./update-lab_superdylanyt
+             clear
+             exit
+           ;;
+        
+	*)
+	    echo $"Usage: $0 {start|update}"
+	    exit 2
+	    ;;
+esac
 setterm -foreground green
 menu()
 {
