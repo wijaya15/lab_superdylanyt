@@ -52,7 +52,8 @@ echo -e "\e[5;96m   26- Instalar Termux Apktool"
 echo -e "\e[5;94m   27- Instalar Jupyter Notebook en TermuxUbuntu"
 echo -e "\e[5;95m   28- Iniciar Jupyter Notebook en LAN"
 echo -e "\e[5;93m   29- Instalar Debian en Termux"
-echo -e "\e[5;92m   30- Salir"
+echo -e "\e[5;92m   30- Instalar MyServer"
+echo -e "\e[5;97m   31- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -930,6 +931,54 @@ exit
 fi
 ;;
 "30")
+clear
+echo -e "\e[5;36m [+] Instalando MyServer "
+home="--"
+cd $home
+function install {
+
+  if [ "$HOME" = "$HOME" ] ; then
+           pkg update -y && pkg upgrade -y
+           pkg install git -y
+  else
+     apt update -y && apt upgrade -y
+     apt install git -y
+
+  fi
+
+   if [ "sudo" = "sudo" ] ; then
+              sudo apt update -y && sudo apt upgrade -y
+              sudo apt install git -y
+    else
+             apt update -y && apt upgrade -y
+             apt install git -y
+
+    fi
+
+
+}
+
+install
+git clone https://github.com/rajkumardusad/MyServer
+cd MyServer
+chmod +x *;ls
+clear
+./install
+clear
+cd $home
+clear
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"31")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
