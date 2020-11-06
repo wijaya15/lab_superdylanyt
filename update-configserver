@@ -1,0 +1,10 @@
+#!/bin/bash
+clear
+rm -rf configserver
+echo " [+] Actualizando configserver "
+curl --progress-bar -L --fail --retry 4 -O  https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/configserver
+chmod +x configserver
+clear
+echo " [+] Actualización Completada "
+clear
+rm -rf update-configserver
