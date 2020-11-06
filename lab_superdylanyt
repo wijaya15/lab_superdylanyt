@@ -861,8 +861,8 @@ echo -ne '############          (55%)\r'
 sudo apt update -yq --silent
 sudo apt upgrade -yq --silent
 echo -ne '################      (70%)\r'
-sudo apt install net-tools -y
-sudo apt install jupyter-notebook -y
+sudo apt install net-tools -yq --silent
+sudo apt install jupyter-notebook -yq --silent
 echo -ne '#######################   (100%)\r'
 echo -ne '\n'
 cd $home
