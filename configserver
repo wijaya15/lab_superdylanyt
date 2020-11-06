@@ -1,0 +1,107 @@
+#!/bin/bash
+clear
+setterm -foreground green
+menu()
+{
+clear
+echo -e "\n\e[93m@configserver\n"
+echo -e "\n\e[5;97m   1- Información del sistema"
+echo -e "\e[5;96m   2- Listar a todos los usuarios"
+echo -e "\e[5;94m   3- Añadir un Nuevo Usuario"
+echo -e "\e[5;95m   4- Mirar Historial"
+echo -e "\e[5;93m   5- Salir"
+echo -e -n "\e[5;92m \n >>>  "
+read res
+case $res in
+"1")
+clear
+echo -e "\e[5;36m Arquitectura de la máquina: "
+setterm -foreground white
+uname -m
+echo -e "\e[5;36m Versión del kernel usado: "
+setterm -foreground white
+uname -r
+echo -e "\e[5;36m Especificaciones del sistema Ubuntu: "
+setterm -foreground white
+lshw
+echo -e "\e[5;36m Dirección IP Privada: "
+setterm -foreground white
+ifconfig wlan0
+echo -e "\e[5;36m Dirección IP Pública: "
+setterm -foreground white
+curl https://wgetip.com -w "\n"
+echo -e "\e[5;36m Más información del sistema: "
+setterm -foreground white
+inxi
+echo -e "\e[5;36m Nombre de Usuario: "
+setterm -foreground white
+whoami
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"2")
+clear
+awk -F: '{ print $1}' /etc/passwd
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"3")
+clear
+read -p " Escribe el nombre de Usuario: " name
+adduser $name
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"4")
+clear
+history
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"5")
+clear
+echo " [+] Saliendo..... "
+echo " [+] Bye :D "
+clear
+exit
+;;
+esac
+}
+menu
