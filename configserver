@@ -33,6 +33,9 @@ read res
 case $res in
 "1")
 clear
+echo -e "\e[5;36m Información del sistema"
+setterm -foreground white
+clear
 echo -e "\e[5;36m Arquitectura de la máquina: "
 setterm -foreground white
 uname -m
@@ -58,6 +61,8 @@ echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
 read ENTER
 setterm -foreground white
 clear
+echo -e "\e[5;36m [+] FINALIZADO "
+clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
 if [ "$s" = "s" ]; then 
@@ -69,10 +74,14 @@ fi
 ;;
 "2")
 clear
+echo -e "\e[5;36m [+] Listando a todos los usuarios "
+setterm -foreground white
 awk -F: '{ print $1}' /etc/passwd
 echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
 read ENTER
 setterm -foreground white
+clear
+echo -e "\e[5;36m [+] FINALIZADO "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
@@ -85,8 +94,12 @@ fi
 ;;
 "3")
 clear
+echo -e "\e[5;36m [+] Creando Usuario "
+setterm -foreground white
 read -p " Escribe el nombre de Usuario: " name
 adduser $name
+clear
+echo -e "\e[5;36m [+] FINALIZADO "
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
