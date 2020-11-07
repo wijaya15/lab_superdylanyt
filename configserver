@@ -33,7 +33,8 @@ echo -e "\e[5;97m   7- Comprobar los procesos del CPU con strace"
 echo -e "\e[5;96m   8- Verificar procesos del sistema"
 echo -e "\e[5;94m   9- Destruir proceso del sistema"
 echo -e "\e[5;95m   10- Verificar Tráfico de Red"
-echo -e "\e[5;93m   11- Salir"
+echo -e "\e[5;93m   11- Verificar puertos listener"
+echo -e "\e[5;92m   12- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -242,6 +243,24 @@ exit
 fi
 ;;
 "11")
+clear
+echo -e "\e[5;36m [+] Verificando Puertos Listener "
+setterm -foreground white
+netstat -plunt
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"12")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
