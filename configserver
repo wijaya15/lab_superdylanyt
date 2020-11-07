@@ -31,7 +31,9 @@ echo -e "\e[5;93m   5- Verificar Último Inicio de Sesión"
 echo -e "\e[5;92m   6- Comprobar los procesos del CPU"
 echo -e "\e[5;97m   7- Comprobar los procesos del CPU con strace"
 echo -e "\e[5;96m   8- Verificar procesos del sistema"
-echo -e "\e[5;94m   9- Salir"
+echo -e "\e[5;94m   9- Destruir proceso del sistema"
+echo -e "\e[5;95m   10- Verificar Tráfico de Red"
+echo -e "\e[5;93m   11- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -203,6 +205,43 @@ exit
 fi
 ;;
 "9")
+clear
+echo -e "\e[5;36m [+] Destruir proceso del sistema "
+setterm -foreground white
+read -p " ESCRIBE EL PIP: " numero
+kill -9 $numero
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"10")
+clear
+echo -e "\e[5;36m [+] Verificando Tráfico de Red "
+setterm -foreground white
+iftop
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"11")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
