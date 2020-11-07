@@ -564,20 +564,28 @@ echo -e "\e[5;36m [+] Instalando configserver en Ubuntu "
 setterm -foreground white
 home="--"
 cd $home
-apt update -y && apt upgrade -y
-apt install sudo -y
-sudo apt update -y && sudo apt upgrade -y
-sudo apt install curl -y
-sudo apt install net-tools -y
-sudo apt install strace -y
-sudo apt install iftop -y
-sudo apt install lsof -y
-sudo apt install chkrootkit -y
-sudo apt install inxi -y
-sudo apt install lshw -y
+echo -ne '#                     (10%)\r'
+apt update -yq --silent && apt upgrade -yq --silent
+echo -ne '######                (47%)\r'
+apt install sudo -yq --silent
+sudo apt update -yq --silent && sudo apt upgrade -yq --silent
+echo -ne '################      (70%)\r'
+sudo apt install curl -yq --silent
+sudo apt install net-tools -yq --silent
+sudo apt install strace -yq --silent
+sudo apt install iftop -yq --silent
+sudo apt install lsof -yq --silent
+sudo apt install chkrootkit -yq --silent
+sudo apt install inxi -yq --silent
+sudo apt install lshw -yq --silent
 clear
+echo -ne '###################     (80%)\r'
 curl --progress-bar -L --fail --retry 4 -O https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/configserver
 chmod +x configserver
+echo -ne '####################    (88%)\r'
+sleep 1
+echo -ne '#######################   (100%)\r'
+echo -ne '\n'
 clear
 cd $home
 clear
