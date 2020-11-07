@@ -30,7 +30,8 @@ echo -e "\e[5;95m   4- Verificar Inicio de Sesión Actual"
 echo -e "\e[5;93m   5- Verificar Último Inicio de Sesión"
 echo -e "\e[5;92m   6- Comprobar los procesos del CPU"
 echo -e "\e[5;97m   7- Comprobar los procesos del CPU con strace"
-echo -e "\e[5;96m   8- Salir"
+echo -e "\e[5;96m   8- Verificar procesos del sistema"
+echo -e "\e[5;94m   9- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -170,6 +171,9 @@ echo -e "\e[5;36m [+] Comprobar los procesos del CPU "
 setterm -foreground white
 read -p " Escribe el <PID Number> " numero
 strace -d -p $numero
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
 clear
 echo -e "\e[5;96m Regresar al menu s/n?"
 read s
@@ -181,6 +185,24 @@ exit
 fi
 ;;
 "8")
+clear
+echo -e "\e[5;36m [+] Verificando procesos del sistema "
+setterm -foreground white
+ps auxf
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"9")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
