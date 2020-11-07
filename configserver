@@ -34,7 +34,9 @@ echo -e "\e[5;96m   8- Verificar procesos del sistema"
 echo -e "\e[5;94m   9- Destruir proceso del sistema"
 echo -e "\e[5;95m   10- Verificar Tráfico de Red"
 echo -e "\e[5;93m   11- Verificar puertos listener"
-echo -e "\e[5;92m   12- Salir"
+echo -e "\e[5;92m   12- Verificar puertos listener con lsof"
+echo -e "\e[5;97m   13- Comprobar rootkit"
+echo -e "\e[5;96m   14- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -261,6 +263,42 @@ exit
 fi
 ;;
 "12")
+clear
+echo -e "\e[5;36m [+] Verificando Puertos Listener "
+setterm -foreground white
+lsof -p
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"13")
+clear
+echo -e "\e[5;36m [+] Comprobando Rootkit "
+setterm -foreground white
+chkrootkit
+echo -e "\e[5;36m Pulsa ENTER para salir de aqui "
+read ENTER
+setterm -foreground white
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"14")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
