@@ -172,7 +172,7 @@ fi
 ;;
 "7")
 clear
-echo -e "\e[5;36m [+] Comprobar los procesos del CPU "
+echo -e "\e[5;36m [+] Comprobando los procesos del CPU "
 setterm -foreground white
 read -p " Escribe el <PID Number>: " numero
 strace -d -p $numero
