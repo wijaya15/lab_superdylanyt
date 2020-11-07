@@ -572,7 +572,7 @@ sudo apt install net-tools -y
 sudo apt install strace -y
 sudo apt install iftop -y
 sudo apt install lsof -y
-sudo apt install chrootkit -y
+sudo apt install chkrootkit -y
 sudo apt install inxi -y
 sudo apt install lshw -y
 clear
