@@ -1007,6 +1007,7 @@ clear
 ./install.sh
 clear
 cd $HOME
+rm -rf $HOME/proot-distro
 clear
 echo -e "\e[5;36m [+] Instalación Completada "
 clear
