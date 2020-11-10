@@ -54,7 +54,8 @@ echo -e "\e[5;95m   28- Iniciar Jupyter Notebook en LAN"
 echo -e "\e[5;93m   29- Instalar Debian en Termux"
 echo -e "\e[5;92m   30- Instalar MyServer en Ubuntu"
 echo -e "\e[5;97m   31- Instalar proot-distro en Termux"
-echo -e "\e[5;96m   32- Salir"
+echo -e "\e[5;96m   32- Instalar Ngrok en Termux"
+echo -e "\e[5;94m   33- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -1021,6 +1022,31 @@ exit
 fi
 ;;
 "32")
+clear
+echo -e "\e[5;36m [+] Instalando Ngrok en Termux "
+cd $HOME
+pkg update -y && pkg upgrade -y
+pkg install git -y
+git clone https://github.com/TermuxHacking000/NgrokTH
+cd $HOME/NgrokTH
+chmod +x *;ls
+./ngrok.sh
+clear
+cd $HOME
+rm -rf $HOME/NgrokTH
+clear
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"33")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
