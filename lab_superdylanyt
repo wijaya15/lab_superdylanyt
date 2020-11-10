@@ -56,7 +56,8 @@ echo -e "\e[5;92m   30- Instalar MyServer en Ubuntu"
 echo -e "\e[5;97m   31- Instalar proot-distro en Termux"
 echo -e "\e[5;96m   32- Instalar Ngrok en Termux"
 echo -e "\e[5;94m   33- Instalar MyServer en Termux"
-echo -e "\e[5;95m   34- Salir"
+echo -e "\e[5;95m   34- Instalar tlogin en Termux"
+echo -e "\e[5;93m   35- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -1075,6 +1076,32 @@ exit
 fi
 ;;
 "34")
+clear
+echo -e "\e[5;36m [+] Instalando tlogin en Termux "
+cd $HOME
+pkg update -y && pkg upgrade -y
+pkg install git -y
+pkg install python -y
+git clone https://github.com/1Tech-X/tlogin
+cd $HOME/tlogin
+chmod +x *;ls
+clear
+sh tlogin.sh
+clear
+cd $HOME
+clear
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"35")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
