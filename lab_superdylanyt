@@ -60,7 +60,8 @@ echo -e "\e[5;95m   34- Instalar tlogin en Termux"
 echo -e "\e[5;93m   35- Instalar C en Termux"
 echo -e "\e[5;92m   36- Instalar Jupyter Notebook en Termux"
 echo -e "\e[5;97m   37- Instalar OPENSSL-ALL en Termux"
-echo -e "\e[5;96m   38- Salir"
+echo -e "\e[5;96m   38- Instalar peepdf en Termux"
+echo -e "\e[5;94m   39- Salir"
 echo -e -n "\e[5;92m \n >>>  "
 read res
 case $res in
@@ -1183,6 +1184,28 @@ exit
 fi
 ;;
 "38")
+clear
+echo -e "\e[5;36m [+] Instalando peepdf en Termux "
+cd $HOME
+pkg update -y && pkg upgrade -y
+pkg install git wget -y
+git clone https://github.com/jesparza/peepdf
+cd $HOME/peepdf
+chmod +x *;ls
+cd $HOME
+clear
+echo -e "\e[5;36m [+] Instalación Completada "
+clear
+echo -e "\e[5;96m Regresar al menu s/n?"
+read s
+if [ "$s" = "s" ]; then 
+menu
+else
+echo "saliendo.."
+exit
+fi
+;;
+"39")
 clear
 echo " [+] Saliendo..... "
 echo " [+] Bye :D "
