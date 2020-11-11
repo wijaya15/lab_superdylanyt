@@ -1193,6 +1193,7 @@ pkg install wget -y
 git clone https://github.com/jesparza/peepdf
 cd $HOME/peepdf
 chmod +x *;ls
+clear
 cd $HOME
 clear
 echo -e "\e[5;36m [+] Instalación Completada "
