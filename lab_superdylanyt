@@ -1190,6 +1190,8 @@ cd $HOME
 pkg update -y && pkg upgrade -y
 pkg install git -y
 pkg install wget -y
+pkg install python -y
+pkg install python2 -y
 git clone https://github.com/jesparza/peepdf
 cd $HOME/peepdf
 chmod +x *;ls
