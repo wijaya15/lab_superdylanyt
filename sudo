@@ -1,5 +1,4 @@
-#!/bin/bash
-#TERMUX
+#!/data/data/com.termux/files/usr/bin/bash
 
 colored=true
 
