@@ -1,8 +1,8 @@
 #!/bin/bash
+#TERMUX
 
 colored=true
 
-#red=1 green=2 yellow=3
 color() {
 	if [ $colored == "true" ]; then
 		echo "$(tput setaf $1)${*:2}$(tput sgr0)"
