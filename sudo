@@ -38,7 +38,7 @@ if [ ! -d $ROOT_HOME ]; then
 	elif [ -x $SYSBIN/mount ]; then
 		MOUNTEX="$SYSBIN/mount"
 	else
-		echo -e "\nCannot find `color 1 mount` executable"
+		echo -e "\nCannot find `\e[5;97m mount` executable"
 		echo -e "`\e[5;97m Unable to setup sudo`\n"
 		exit
 	fi
