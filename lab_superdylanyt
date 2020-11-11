@@ -1127,6 +1127,12 @@ echo -e "\e[5;36m [+] Instalando Jupyter Notebook en Termux "
 cd $HOME
 pkg update -y && pkg upgrade -y
 pkg install python -y
+pkg install root-repo -y
+pkg install figlet -y
+pkg install unstable-repo -y
+pkg install vim -y
+pkg install clang -y
+pkg install tsu -y && hash -r
 clear
 pip -V
 pip install --upgrade pip
