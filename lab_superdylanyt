@@ -1214,6 +1214,11 @@ fi
 clear
 echo -e "\e[5;36m [+] Instalando sudo en Termux "
 cd $HOME
+pkg update -y && pkg upgrade -y
+pkg install wget -y
+pkg install tsu -y
+pkg install root-repo -y
+pkg install ncurses-utils -y
 cd $PREFIX/bin
 bin=sudo
 cat > $bin <<- EOM
