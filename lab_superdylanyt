@@ -1188,7 +1188,8 @@ clear
 echo -e "\e[5;36m [+] Instalando peepdf en Termux "
 cd $HOME
 pkg update -y && pkg upgrade -y
-pkg install git wget -y
+pkg install git -y
+pkg install wget -y
 git clone https://github.com/jesparza/peepdf
 cd $HOME/peepdf
 chmod +x *;ls
