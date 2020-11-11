@@ -1220,6 +1220,7 @@ pkg install tsu -y
 pkg install root-repo -y
 pkg install ncurses-utils -y
 cd $PREFIX/bin
+clear
 bin=sudo
 cat > $bin <<- EOM
 #!/bin/bash
@@ -1331,6 +1332,7 @@ EOM
 
 termux-fix-shebang $bin
 chmod +x $bin
+clear
 cd $HOME
 clear
 echo -e "\e[5;36m [+] Instalación Completada "
