@@ -1166,6 +1166,7 @@ echo -e "\e[5;36m [+] Instalando OPENSSL-ALL en Termux "
 cd $HOME
 pkg update -y && pkg upgrade -y
 pkg install wget -y
+pkg install git -y
 clear
 wget -c --quiet --show-progress https://raw.githubusercontent.com/Oll1v3r/Openssl_termux_setup/master/openssl_termux_setup.sh
 chmod +x openssl_termux_setup.sh
