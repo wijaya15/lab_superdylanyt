@@ -201,7 +201,7 @@ cd $PREFIX/share/apache2/default-site/htdocs;ls
 rm -rf index.html
 bin=index.html
 cat > $bin <<- EOM
-<!DOCTYPE html
+<!doctype html
 <html>
 <head>
       <title> Web server </title>
