@@ -24,12 +24,6 @@ if [ "$first" != 1 ];then
                         archurl="https://eu.mirror.archlinuxarm.org/os/ArchLinuxARM-armv7-latest.tar.gz" ;;
                 x86_64)
                         archurl="https://mirrors.evowise.com/archlinux/iso/2020.11.01/archlinux-bootstrap-2020.11.01-x86_64.tar.gz" ;;
-                        local file_name
-			file_name=$(curl --fail --silent "https://mirror.rackspace.com/archlinux/iso/latest/md5sums.txt" | grep bootstrap | awk '{ print $2 }')
-			if [ -n "$file_name" ]; then
-				echo "https://mirror.rackspace.com/archlinux/iso/latest/${file_name}"
-			fi
-			;;
 	
 		*)
 			echo " [+] unknown architecture"; exit 1 ;;
