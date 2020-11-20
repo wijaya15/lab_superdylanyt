@@ -1217,14 +1217,23 @@ clear
 echo -e "\e[5;36m [+] Instalando sudo en Termux "
 cd $HOME
 pkg update -y && pkg upgrade -y
-pkg install wget -y
+pkg install git -y
 pkg install tsu -y
 pkg install root-repo -y
 pkg install ncurses-utils -y
 cd $PREFIX/bin
 clear
-wget -c --quiet --show-progress https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/sudo
-chmod 700 sudo
+git clone https://gitlab.com/st42/termux-sudo
+cd $HOME/termux-sudo
+chmod +x *;ls
+cat sudo > /data/data/com.termux/files/usr/bin/sudo
+chmod 700 /data/data/com.termux/files/usr/bin/sudo
+clear
+cd $HOME
+clear
+cd $HOME
+rm -rf $HOME/termux-sudo
+cd $HOME
 clear
 cd $HOME
 clear
