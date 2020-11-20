@@ -1,5 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/bash
-#arch
 DISTRO_NAME=Arch
 INSTALLED_ROOTFS_DIR=$PREFIX/share/$DISTRO_NAME/ubuntu-fs
 mkdir $PREFIX/share/$DISTRO_NAME
