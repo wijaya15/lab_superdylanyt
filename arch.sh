@@ -40,7 +40,7 @@ if [ "$first" != 1 ];then
 
         install
         run_proot_cmd() {
-	   if [ -z "${distro_name-}" ]; then
+	   if [ -z "${INSTALLED_ROOTFS_DIR}" ]; then
 		echo
 		echo -e "${BRED}Error: called run_proot_cmd() but \${distro_name} is not set. Possible cause: using run_proot_cmd() outside of distro_setup()?${RST}"
 		echo
