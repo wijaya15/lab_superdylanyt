@@ -37,6 +37,7 @@ if [ "$first" != 1 ];then
 	proot --link2symlink tar -xf ${cur}/${tarball}||:
         echo " [+] Adding the new configuration and rebooting the system."
 }
+
         install
         run_proot_cmd() {
 	   if [ -z "${distro_name-}" ]; then
