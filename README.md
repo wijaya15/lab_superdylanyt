@@ -43,37 +43,6 @@ Para instalar Ubuntu en Termux, ingresa al menu del sistema lab_superdylanyt, y 
 
 Una vez instalado Ubuntu, debes iniciar el sistema Ubuntu con el comando startubuntu.
 
-En caso de que ocurra un error al ejecutar ./lab_superdylanyt start
-
-Ejecuta estos comandos para instalar Ubuntu en Termux:
-
-```shell
-
-pkg install wget openssl-tool proot -y && hash -r && wget -c --quiet --show-progress https://raw.githubusercontent.com/dylan14567/lab_superdylanyt/master/Server/ubuntu.sh && bash ubuntu.sh 
-
-```
-
-Luego ve a $PREFIX/bin y crea un script con el nombre startubuntu y añade este codigo.
-
-```shell
-
-clear
-cd $PREFIX/share/Ubuntu
-./start-ubuntu.sh
-
-```
-
-Luego ejecuta estos comandos desde la terminal.
-
-```shell
-
-termux-fix-shebang startubuntu
-chmod +x startubuntu
-
-```
-
-Luego regresa a $HOME y ejecuta startubuntu y ya podras usar Ubuntu en Termux.
-
 /FIN/
 
 # Solución de error con dpkg en Ubuntu
