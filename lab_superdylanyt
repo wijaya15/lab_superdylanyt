@@ -1226,8 +1226,8 @@ clear
 git clone https://gitlab.com/st42/termux-sudo
 cd $HOME/termux-sudo
 chmod +x *;ls
-cat sudo > /data/data/com.termux/files/usr/bin/sudo
-chmod 700 /data/data/com.termux/files/usr/bin/sudo
+mv sudo $PREFIX/bin
+chmod 700 $PREFIX/bin/sudo
 clear
 cd $HOME
 clear
