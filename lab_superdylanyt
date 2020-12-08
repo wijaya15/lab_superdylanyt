@@ -1221,8 +1221,8 @@ pkg install git -y
 pkg install tsu -y
 pkg install root-repo -y
 pkg install ncurses-utils -y
-cd $PREFIX/bin
 clear
+cd $HOME
 git clone https://gitlab.com/st42/termux-sudo
 cd $HOME/termux-sudo
 chmod +x *;ls
